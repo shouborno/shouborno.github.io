@@ -9,8 +9,8 @@ self_names: ["Shouborno, S. A. I.", "Imran, S. A.", "Imran, Sheikh Asif"]
 
 tagline: >-
   My research develops interpretable machine learning methods that infer what
-  sensors cannot measure directly, from blood pressure on a skin-worn patch to a
-  controller's execution from its plant's sensors.
+  sensors cannot measure directly, such as blood pressure from a skin-worn patch or
+  an industrial controller's execution from the sensors on the plant it controls.
 role: PhD candidate in Electrical and Computer Engineering
 institution: University of Massachusetts Amherst
 institution_url: https://www.umass.edu/
@@ -50,7 +50,7 @@ directions:
     body: >-
       With the Kireev Lab at UMass Amherst, I am building physics-informed neural
       networks that estimate blood pressure from graphene electronic tattoo patches,
-      so blood pressure can be tracked continuously without a cuff. Our PhysioNet
+      to track blood pressure continuously without a cuff. Our PhysioNet
       Challenge 2026 entry screens for future cognitive impairment from overnight
       sleep studies using interpretable sleep features, and tests whether they
       hold up across clinical sites. Earlier, I predicted hypoxemia severity in
@@ -61,14 +61,14 @@ directions:
     trace: square
     label: Machines
     summary: >-
-      Inferring what an industrial controller did from what its plant physically
-      did, so faults can be found without instrumenting the controller.
+      Finding faults in industrial control software from the plant's sensor data,
+      without instrumenting the controller.
     body: >-
       With Bosch Research, I reconstruct a controller's branch-level execution trace
-      from the plant's process sensors alone, which lets engineers debug control
+      from the plant's process sensors alone. Engineers can then debug control
       software without adding logging to the deployed controller. During my Bosch
       internship I built a contrastive model linking four modalities from a
-      manufacturing process (video, sensors, program execution traces and text) for
+      manufacturing process (vision, sensor, program trace and text data) for
       language-guided few-shot state classification.
   - id: language
     kind: method
@@ -97,8 +97,8 @@ directions:
       JOLT trains early-exit networks so that each exit's confidence tracks which
       inputs it gets right, then routes on that confidence to hold a stated compute
       budget even when the input distribution shifts. Across seven sensor, image,
-      audio and language datasets it ranks first of eleven methods. I also teach in
-      the graduate course On-Device Deep Learning.
+      audio and language datasets it ranks first of eleven methods. At WPI I was also a
+      teaching assistant for the graduate course On-Device Deep Learning.
 
 research_interests: >-
   Interpretable and physics-informed machine learning for sensor data; wearable
@@ -128,7 +128,7 @@ news:
   - date: 2025-12
     text: Completed my M.S. in Electrical and Computer Engineering at WPI.
   - date: 2025-10
-    text: LLaSA appeared at UbiComp 2025.
+    text: LLaSA appeared in the UbiComp 2025 Companion proceedings.
   - date: 2025-05
     text: Joined Bosch Research in Pittsburgh as an AI for cyber-physical systems intern.
 

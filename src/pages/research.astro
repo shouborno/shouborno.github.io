@@ -6,7 +6,7 @@ import { profile, publications } from "../lib/data.js";
 <Base title="Research">
   <header class="page-head">
     <h1>Research</h1>
-    <p>Two application areas share one question: what can a model reliably infer from sensors that do not measure the target directly? Two supporting methods help answer it.</p>
+    <p>My work asks what a model can reliably infer from sensors that do not measure the target directly. I apply it to wearable health and to industrial control, and two supporting lines of work, explaining sensor data in language and running models on small devices, make those models easier to check and to deploy.</p>
   </header>
   {profile.directions.map((d, i, all) => {
     const pubs = publications.filter((p) => p.topic === d.id);
