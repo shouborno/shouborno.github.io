@@ -10,7 +10,8 @@ self_names: ["Shouborno, S. A. I.", "Imran, S. A.", "Imran, Sheikh Asif"]
 tagline: >-
   My research develops interpretable machine learning methods that infer what
   sensors cannot measure directly, such as blood pressure from a skin-worn patch or
-  an industrial controller's execution from the sensors on the plant it controls.
+  the program execution trace of an industrial controller from the sensors on the
+  plant it controls.
 role: PhD candidate in Electrical and Computer Engineering
 institution: University of Massachusetts Amherst
 institution_url: https://www.umass.edu/
@@ -64,7 +65,8 @@ directions:
       Finding faults in industrial control software from the plant's sensor data,
       without instrumenting the controller.
     body: >-
-      With Bosch Research, I reconstruct a controller's branch-level execution trace
+      With Bosch Research, I reconstruct the branch-level program execution trace of an
+      industrial controller
       from the plant's process sensors alone. Engineers can then debug control
       software without adding logging to the deployed controller. During my Bosch
       internship I built a contrastive model linking four modalities from a
