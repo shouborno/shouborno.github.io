@@ -6,12 +6,13 @@ import { profile, publications } from "../lib/data.js";
 <Base title="Research">
   <header class="page-head">
     <h1>Research</h1>
-    <p>Four directions share one approach: model the physics of the sensor, spend compute where the input needs it, and explain the result.</p>
+    <p>Two application areas share one question: what can a model reliably infer from sensors that do not measure the target directly? Two supporting methods help answer it.</p>
   </header>
-  {profile.directions.map((d) => {
+  {profile.directions.map((d, i, all) => {
     const pubs = publications.filter((p) => p.topic === d.id);
     return (
       <section id={d.id} class="direction">
+        {d.kind !== all[i - 1]?.kind && <p class="kind ui">{d.kind === "application" ? "Application" : "Supporting method"}</p>}
         <h2>{d.title}</h2>
         <p class="summary">{d.summary}</p>
         <p>{d.body}</p>
@@ -30,5 +31,6 @@ import { profile, publications } from "../lib/data.js";
 <style>
   .direction { scroll-margin-top: 1rem; border-top: 2px solid var(--grid); margin-top: 2.5rem; }
   .direction h2 { margin-top: 1.25rem; }
+  .kind { margin: 1rem 0 -0.75rem; font-size: 0.85rem; color: var(--trace); }
   .summary { font-style: italic; color: var(--muted); }
 </style>

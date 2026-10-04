@@ -8,8 +8,9 @@ also_cited_as: [Imran, S. A., Shouborno, S. A. I., Asif Imran Shouborno, S.]
 self_names: ["Shouborno, S. A. I.", "Imran, S. A.", "Imran, Sheikh Asif"]
 
 tagline: >-
-  I develop machine learning methods for body-worn and machine-embedded sensors
-  that run within a device's compute budget and explain their predictions.
+  My research develops interpretable machine learning methods that infer what
+  sensors cannot measure directly, from blood pressure on a skin-worn patch to a
+  controller's execution from its plant's sensors.
 role: PhD candidate in Electrical and Computer Engineering
 institution: University of Massachusetts Amherst
 institution_url: https://www.umass.edu/
@@ -28,7 +29,6 @@ links:
 cv: /cv.pdf
 
 about: >-
-  My research is about making sensor data useful on the devices that collect it.
   At UMass Amherst I estimate blood pressure from graphene electronic tattoos with
   the Kireev Lab, and I reconstruct industrial controller behavior from process
   sensors with Bosch Research. Before that, at WPI, I built LLaSA, a language model
@@ -36,15 +36,17 @@ about: >-
   keeps early-exit networks within a compute budget. Before my PhD I spent two and
   a half years shipping speech and conversational AI at Hishab.
 
-# The hero trace: one segment per direction, left to right.
+# Research directions, in display order. kind "application" is a problem area,
+# kind "method" is a supporting technique. The hero trace draws one segment each.
 directions:
   - id: health
-    title: Continuous physiological monitoring
+    kind: application
+    title: Wearable health sensing
     trace: pulse
-    label: Physiology
+    label: Health
     summary: >-
-      Estimating vital signs and health risk from signals that wearables can record
-      all day, with models whose behavior a clinician can inspect.
+      Estimating physiological state that a wearable cannot measure directly, with
+      models a clinician can inspect.
     body: >-
       With the Kireev Lab at UMass Amherst, I am building physics-informed neural
       networks that estimate blood pressure from graphene electronic tattoo patches,
@@ -53,13 +55,29 @@ directions:
       sleep studies using interpretable sleep features, and tests whether they
       hold up across clinical sites. Earlier, I predicted hypoxemia severity in
       hospital in-patients from the photoplethysmograph.
-  - id: language
-    title: Language models that read sensor data
-    trace: motion
-    label: Sensor language
+  - id: cps
+    kind: application
+    title: Industrial cyber-physical systems
+    trace: square
+    label: Machines
     summary: >-
-      Letting people ask questions about what a wearable recorded, and get answers
-      grounded in the signal rather than guessed.
+      Inferring what an industrial controller did from what its plant physically
+      did, so faults can be found without instrumenting the controller.
+    body: >-
+      With Bosch Research, I reconstruct a controller's branch-level execution trace
+      from the plant's process sensors alone, which lets engineers debug control
+      software without adding logging to the deployed controller. During my Bosch
+      internship I built a contrastive model linking four modalities from a
+      manufacturing process (video, sensors, program execution traces and text) for
+      language-guided few-shot state classification.
+  - id: language
+    kind: method
+    title: Explaining sensor data in language
+    trace: motion
+    label: Language
+    summary: >-
+      Making a model's reading of sensor data inspectable by letting people ask
+      about it in plain language.
     body: >-
       LLaSA pairs an IMU encoder with a language model so it can answer open-ended
       questions about human activity from raw accelerometer and gyroscope data; we
@@ -68,31 +86,25 @@ directions:
       signal. This builds on two and a half years of production conversational AI
       and speech recognition for Bengali speakers.
   - id: on-device
+    kind: method
     title: Efficient inference on the device
     trace: sleep
     label: On-device
     summary: >-
-      Spending compute only where an input needs it, so models fit the battery and
-      latency limits of wearables and embedded hardware.
+      Keeping these models within the battery and latency limits of wearables and
+      embedded hardware.
     body: >-
       JOLT trains early-exit networks so that each exit's confidence tracks which
       inputs it gets right, then routes on that confidence to hold a stated compute
       budget even when the input distribution shifts. Across seven sensor, image,
       audio and language datasets it ranks first of eleven methods. I also teach in
       the graduate course On-Device Deep Learning.
-  - id: cps
-    title: Industrial cyber-physical systems
-    trace: square
-    label: Machines
-    summary: >-
-      Applying the same sensor-first methods to machines: diagnosing industrial
-      controllers from what their plants physically do.
-    body: >-
-      At Bosch Research I built a contrastive model that links four modalities from
-      a manufacturing process (video, sensors, program execution traces and text)
-      for language-guided few-shot state classification. The follow-up work
-      reconstructs a controller's branch-level execution trace from plant sensors
-      alone, so faults can be debugged without instrumenting the controller.
+
+research_interests: >-
+  Interpretable and physics-informed machine learning for sensor data; wearable
+  health sensing, including cuffless blood pressure and sleep-based cognitive
+  screening; industrial cyber-physical systems; language models grounded in sensor
+  data; efficient on-device inference.
 
 news:
   - date: 2026-09
