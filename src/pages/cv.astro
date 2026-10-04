@@ -44,7 +44,15 @@ import { profile, month } from "../lib/data.js";
 
   <h2>Service</h2>
   <ul class="dated">
-    {profile.service.map((s) => <li><span class="when">{s.years}</span><span>{s.text}</span></li>)}
+    {profile.service.map((s) => (
+      <li>
+        <span class="when">{s.years}</span>
+        <div>
+          <h3 class="item">{s.role}, {s.org}</h3>
+          <ul class="points">{s.points.map((p) => <li>{p}</li>)}</ul>
+        </div>
+      </li>
+    ))}
   </ul>
 
   <h2>Skills</h2>

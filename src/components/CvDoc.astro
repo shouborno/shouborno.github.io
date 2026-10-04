@@ -98,7 +98,12 @@ const host = profile.links;
 
   <section>
     <h2>Service</h2>
-    {profile.service.map((s) => <div class="row line"><span>{s.text}</span><span class="date">{s.years.replace(" to ", " – ")}</span></div>)}
+    {profile.service.map((s) => (
+      <div class="entry">
+        <div class="row"><span><strong>{s.role}, {s.org}</strong></span><span class="date">{s.years}</span></div>
+        <ul>{s.points.map((p) => <li>{p}</li>)}</ul>
+      </div>
+    ))}
   </section>
 
   <section>

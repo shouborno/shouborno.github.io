@@ -200,10 +200,17 @@ awards:
     text: National champion and 22nd worldwide, IEEEXtreme 12.0 programming contest (national champion in 2017 as well)
 
 service:
-  - years: 2019 to 2021
-    text: Chair, IEEE Signal Processing Society student chapter at BUET. Organized the 2019 IEEE SPS Winter School on Multimodal Signal Processing; the chapter grew into the largest in Bangladesh and received the IEEE SPS Student Branch Chapter Growth Reward.
-  - years: 2017 to 2019
-    text: IEEEXtreme ambassador and 2019 country lead for Bangladesh; ran programming workshops.
+  - role: Chair
+    org: IEEE Signal Processing Society Student Chapter, BUET
+    years: 2019 – 2021
+    points:
+      - Organized the 2019 IEEE SPS Winter School on Multimodal Signal Processing.
+      - Grew the chapter into the largest IEEE student branch chapter in Bangladesh; it received the IEEE SPS Student Branch Chapter Growth Reward.
+  - role: Ambassador and Country Lead (2019)
+    org: IEEEXtreme Programming Contest
+    years: 2017 – 2019
+    points:
+      - Ran programming workshops for students in Bangladesh.
 
 skills:
   - group: Machine learning

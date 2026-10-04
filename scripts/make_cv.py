@@ -59,7 +59,7 @@ def main():
                   f'font-size:7.5pt;color:#5b6573">S. A. I. Shouborno, {label}, {stamp}, page '
                   '<span class="pageNumber"></span> of <span class="totalPages"></span></div>')
         pg.pdf(path=str(out), prefer_css_page_size=True, print_background=True,
-               tagged=True, outline=True, display_header_footer=True,
+               tagged=True, outline=True, display_header_footer=(label == "CV"),
                header_template="<span></span>", footer_template=footer)
         b.close()
     srv.shutdown()
