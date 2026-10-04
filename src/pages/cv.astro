@@ -38,6 +38,26 @@ const span = (s, e) => `${month(s)} to ${month(e)}`;
     ))}
   </ul>
 
+  <h2>Teaching</h2>
+  <ul class="dated">
+    {profile.teaching.map((t) => (
+      <li>
+        <span class="when">{t.years}</span>
+        <div>
+          <h3 class="item">{t.role}, {t.school}</h3>
+          <p class="where">{t.courses}.</p>
+        </div>
+      </li>
+    ))}
+  </ul>
+
+  <h2>Software and datasets</h2>
+  <ul class="dated">
+    {profile.software.map((x) => (
+      <li><span class="when">Code</span><div><h3 class="item"><a href={x.url}>{x.name}</a></h3><p class="where">{x.text}</p></div></li>
+    ))}
+  </ul>
+
   <h2>Awards</h2>
   <ul class="dated">
     {profile.awards.map((a) => <li><span class="when">{a.year}</span><span>{a.text}</span></li>)}

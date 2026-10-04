@@ -155,7 +155,7 @@ experience:
     place: Worcester, MA
     points:
       - BASH Lab research on LLMs for IMU-based activity reasoning and on budgeted early-exit inference.
-      - "TA for On-Device Deep Learning (CS 525 / DS 595 / ECE 579), Discrete-Time Signal and System Analysis (ECE 2312), Introduction to Digital Circuit Design (ECE 2029), and Sensors, Circuits, and Systems (ECE 2019)."
+      - Teaching assistant for graduate and undergraduate ECE courses (see Teaching).
   - org: Hishab Technologies
     title: Machine Learning Engineer
     start: 2021-02
@@ -166,27 +166,6 @@ experience:
       - Deployed services for banking and microfinance clients, including Bank Asia and Hitachi India.
       - Co-inventor on a U.S. patent application for optimizing interactive voice response sessions.
       - Worked with partner Chowa Giken (Japan) on car interior image enhancement.
-  - org: Socian Ltd.
-    title: Machine Learning Engineer Intern
-    start: 2020-09
-    end: 2020-12
-    place: Dhaka, Bangladesh
-    points:
-      - NLP and speech processing for Bengali, including POS tagging, NER, sentiment and topic classification, and ASR.
-  - org: Gyanjam Corporations
-    title: CTO
-    start: 2018-04
-    end: 2019-03
-    place: Dhaka, Bangladesh
-    points:
-      - Built an e-commerce and e-learning site, designed PCBs, and taught an 8-day C programming workshop for BUET students.
-  - org: Onnorokom Electronics
-    title: Research Intern
-    start: 2016-07
-    end: 2017-12
-    place: Dhaka, Bangladesh
-    points:
-      - Designed science kit products for school students and answered their scientific questions by email.
 
 education:
   - degree: Ph.D., Electrical and Computer Engineering
@@ -194,22 +173,37 @@ education:
     start: 2026-09
     end: 2028-05
     expected: true
-    detail: Advisor Bashima Islam, continuing the doctoral work begun at WPI.
-  - degree: Ph.D. studies, Electrical and Computer Engineering
-    school: Worcester Polytechnic Institute
-    start: 2023-08
-    end: 2026-08
-    detail: GPA 4.00/4.00.
+    detail: Advisor Bashima Islam. Began at Worcester Polytechnic Institute in Aug 2023; transferred with the lab in 2026.
   - degree: M.S., Electrical and Computer Engineering
     school: Worcester Polytechnic Institute
     start: 2023-08
     end: 2025-12
-    detail: "Thesis: Interpretable and Efficient AI for Sensor-Rich Mobile and Embedded Systems."
+    detail: "GPA 4.00/4.00. Thesis: Interpretable and Efficient AI for Sensor-Rich Mobile and Embedded Systems."
   - degree: B.Sc., Electrical and Electronic Engineering
     school: Bangladesh University of Engineering and Technology
     start: 2016-02
     end: 2021-02
-    detail: "Thesis: Audiovisual emotion recognition using a multi-head attention network, advised by Celia Shahnaz. GPA 3.40/4.00."
+    detail: "Thesis: Audiovisual emotion recognition using a multi-head attention network, advised by Celia Shahnaz."
+
+teaching:
+  - years: 2023 – 2026
+    school: Worcester Polytechnic Institute
+    role: Teaching Assistant
+    courses: On-Device Deep Learning (CS 525 / DS 595 / ECE 579, graduate); Discrete-Time Signal and System Analysis (ECE 2312); Introduction to Digital Circuit Design (ECE 2029); Sensors, Circuits, and Systems (ECE 2019)
+
+software:
+  - name: LLaSA
+    url: https://github.com/BASHLab/LLaSA
+    text: Code for the sensor-aware LLM, with the SensorCaps and OpenSQA datasets for IMU captioning and question answering.
+  - name: JOLT
+    url: https://github.com/BASHLab/jolt-early-exit
+    text: Training and budgeted exit policy for early-exit networks, with scripts that reproduce the ICTAI 2026 results.
+  - name: CPS-Debugger
+    url: https://github.com/BASHLab/CPS-Debugger
+    text: Reconstruction of controller execution traces from plant sensors, with the evaluation protocol from the IAAI-27 submission.
+  - name: PhysioNet Challenge 2026 entry
+    url: https://github.com/shouborno/physionet-challenge-2026
+    text: Interpretable sleep-feature pipeline for predicting cognitive impairment across clinical sites.
 
 awards:
   - year: 2020

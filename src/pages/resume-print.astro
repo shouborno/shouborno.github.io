@@ -10,7 +10,7 @@ const span = (s, e) => `${month(s)} – ${month(e)}`.replace("present", "Present
 const host = profile.links;
 const jobs = profile.experience.filter((x) => x.start >= "2021-01");
 const selected = publications.filter((p) => p.selected === "true");
-const edu = profile.education.filter((x) => !x.degree.startsWith("Ph.D. studies"));
+const edu = profile.education;
 ---
 <html lang="en">
 <head>
@@ -52,7 +52,7 @@ const edu = profile.education.filter((x) => !x.degree.startsWith("Ph.D. studies"
     {jobs.map((x) => (
       <div class="entry">
         <div class="row"><span><strong>{x.title}, {x.org}</strong><span class="sub">, {x.place}</span></span><span class="date">{span(x.start, x.end)}</span></div>
-        <ul>{x.points.slice(0, 3).map((p) => <li>{p}</li>)}</ul>
+        <ul>{x.points.filter((p) => !p.includes("(see Teaching)")).slice(0, 3).map((p) => <li>{p}</li>)}</ul>
       </div>
     ))}
   </section>

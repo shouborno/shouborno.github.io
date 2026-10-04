@@ -91,6 +91,23 @@ const host = profile.links;
   </section>
 
   <section>
+    <h2>Software and datasets</h2>
+    {profile.software.map((x) => (
+      <p class="plain"><a href={x.url}><strong>{x.name}</strong></a>. {x.text}</p>
+    ))}
+  </section>
+
+  <section>
+    <h2>Teaching</h2>
+    {profile.teaching.map((t) => (
+      <div class="entry">
+        <div class="row"><span><strong>{t.role}</strong><span class="sub">, {t.school}</span></span><span class="date">{t.years}</span></div>
+        <p class="detail">{t.courses}.</p>
+      </div>
+    ))}
+  </section>
+
+  <section>
     <h2>Honors and awards</h2>
     {profile.awards.map((a) => <div class="row line"><span>{a.text}</span><span class="date">{a.year}</span></div>)}
   </section>
