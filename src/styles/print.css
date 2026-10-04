@@ -32,3 +32,5 @@
   .cv .line { margin: 0 0 2pt; break-inside: avoid; }
   .cv .plain { margin: 0 0 2pt; }
 .cv .code { color: #b0174f; font-family: var(--ui); font-size: 8.4pt; margin-left: 3pt; white-space: nowrap; }
+.cv .refs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10pt; break-inside: avoid; }
+.cv .ref { font-size: 8.8pt; line-height: 1.35; }

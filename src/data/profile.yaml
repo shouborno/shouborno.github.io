@@ -148,6 +148,7 @@ experience:
     place: Pittsburgh, PA
     points:
       - Built a contrastive multimodal model connecting vision, sensor, program trace and text data for language-guided few-shot functional state classification.
+      - Continued the project as a collaboration after the internship, leading to an IAAI-27 submission with Bosch co-authors.
   - org: Worcester Polytechnic Institute
     title: Research and Teaching Assistant
     start: 2023-08

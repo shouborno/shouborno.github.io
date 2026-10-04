@@ -6,7 +6,7 @@ Run after `npm run build`:
     python scripts/make_cv.py --page resume-print --out ~/applications/resume.pdf
 Needs `pip install playwright pypdfium2` and `playwright install chromium`.
 """
-import argparse, functools, http.server, threading
+import argparse, functools, http.server, json, threading
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
@@ -23,6 +23,9 @@ def main():
     ap.add_argument("--png", type=Path)
     ap.add_argument("--page", default="cv-print", help="print page under /, e.g. resume-print")
     ap.add_argument("--out", type=Path, default=ROOT / "public" / "cv.pdf")
+    ap.add_argument("--references", type=Path,
+                    help="JSON list of {name, title, relation, email}; added as a final section. "
+                         "Kept outside this public repo so referee emails are never published.")
     args = ap.parse_args()
 
     srv = http.server.ThreadingHTTPServer(
@@ -35,6 +38,21 @@ def main():
         pg.goto(f"http://127.0.0.1:{srv.server_port}/{args.page}/", wait_until="networkidle")
         pg.evaluate("document.fonts.ready")
         pg.emulate_media(media="print", color_scheme="light")
+        if args.references:
+            refs = json.loads(args.references.read_text())
+            pg.evaluate("""refs => {
+                const sec = document.createElement('section');
+                sec.innerHTML = '<h2>References</h2><div class="refs"></div>';
+                const box = sec.querySelector('.refs');
+                for (const r of refs) {
+                    const d = document.createElement('div');
+                    d.className = 'ref';
+                    d.innerHTML = `<strong>${r.name}</strong><br>${r.title}<br>${r.relation}<br>` +
+                                  `<a href="mailto:${r.email}">${r.email}</a>`;
+                    box.appendChild(d);
+                }
+                document.body.appendChild(sec);
+            }""", refs)
         pg.pdf(path=str(out), prefer_css_page_size=True, print_background=True,
                tagged=True, outline=True)
         b.close()
