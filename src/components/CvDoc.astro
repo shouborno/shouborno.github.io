@@ -73,6 +73,7 @@ const host = profile.links;
           <em>{venue(p)}</em>{p.pages ? `, pp. ${p.pages}` : ""}{p.status ? "" : `, ${p.year}`}.
           {p.status === "under review" && <span class="flag"> Under review.</span>}
           {p.status === "accepted" && <span class="flag"> Accepted, {p.year}.</span>}
+          {p.code && <a class="code" href={p.code}>[{p.codelabel ?? "code"}]</a>}
         </li>
       ))}
     </ol>
@@ -87,23 +88,6 @@ const host = profile.links;
         ))}
         <span class="ptitle">{p.title}.</span> {p.howpublished}, {p.year}.
       </p>
-    ))}
-  </section>
-
-  <section>
-    <h2>Software and datasets</h2>
-    {profile.software.map((x) => (
-      <p class="plain"><a href={x.url}><strong>{x.name}</strong></a>. {x.text}</p>
-    ))}
-  </section>
-
-  <section>
-    <h2>Teaching</h2>
-    {profile.teaching.map((t) => (
-      <div class="entry">
-        <div class="row"><span><strong>{t.role}</strong><span class="sub">, {t.school}</span></span><span class="date">{t.years}</span></div>
-        <p class="detail">{t.courses}.</p>
-      </div>
     ))}
   </section>
 

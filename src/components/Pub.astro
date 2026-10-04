@@ -7,7 +7,7 @@ const people = authors(pub, profile.self_names);
 const links = [
   pub.doi && ["Paper", `https://doi.org/${pub.doi}`],
   pub.arxiv && ["arXiv", `https://arxiv.org/abs/${pub.arxiv}`],
-  pub.code && ["Code", pub.code],
+  pub.code && [pub.codelabel ? pub.codelabel[0].toUpperCase() + pub.codelabel.slice(1) : "Code", pub.code],
 ].filter(Boolean);
 ---
 <article class="pub" data-topic={pub.topic}>

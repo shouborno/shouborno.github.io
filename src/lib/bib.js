@@ -75,7 +75,7 @@ export function venue(e) {
 }
 
 // BibTeX shown to readers: drop the site-only fields.
-const SITE_FIELDS = ["status", "topic", "code", "selected", "note", "arxiv"];
+const SITE_FIELDS = ["status", "topic", "code", "codelabel", "selected", "note", "arxiv"];
 export function citation(e) {
   return e.raw
     .split("\n")

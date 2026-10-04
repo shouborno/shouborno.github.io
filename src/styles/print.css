@@ -31,3 +31,4 @@
   .cv .flag { color: #b0174f; font-style: italic; }
   .cv .line { margin: 0 0 2pt; break-inside: avoid; }
   .cv .plain { margin: 0 0 2pt; }
+.cv .code { color: #b0174f; font-family: var(--ui); font-size: 8.4pt; margin-left: 3pt; white-space: nowrap; }

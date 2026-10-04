@@ -52,7 +52,7 @@ const edu = profile.education;
     {jobs.map((x) => (
       <div class="entry">
         <div class="row"><span><strong>{x.title}, {x.org}</strong><span class="sub">, {x.place}</span></span><span class="date">{span(x.start, x.end)}</span></div>
-        <ul>{x.points.filter((p) => !p.includes("(see Teaching)")).slice(0, 3).map((p) => <li>{p}</li>)}</ul>
+        <ul>{x.points.slice(0, 3).map((p) => <li>{p}</li>)}</ul>
       </div>
     ))}
   </section>

@@ -155,7 +155,7 @@ experience:
     place: Worcester, MA
     points:
       - BASH Lab research on LLMs for IMU-based activity reasoning and on budgeted early-exit inference.
-      - Teaching assistant for graduate and undergraduate ECE courses (see Teaching).
+      - Teaching assistant for the graduate course On-Device Deep Learning and three undergraduate ECE courses.
   - org: Hishab Technologies
     title: Machine Learning Engineer
     start: 2021-02
@@ -185,25 +185,6 @@ education:
     end: 2021-02
     detail: "Thesis: Audiovisual emotion recognition using a multi-head attention network, advised by Celia Shahnaz."
 
-teaching:
-  - years: 2023 – 2026
-    school: Worcester Polytechnic Institute
-    role: Teaching Assistant
-    courses: On-Device Deep Learning (CS 525 / DS 595 / ECE 579, graduate); Discrete-Time Signal and System Analysis (ECE 2312); Introduction to Digital Circuit Design (ECE 2029); Sensors, Circuits, and Systems (ECE 2019)
-
-software:
-  - name: LLaSA
-    url: https://github.com/BASHLab/LLaSA
-    text: Code for the sensor-aware LLM, with the SensorCaps and OpenSQA datasets for IMU captioning and question answering.
-  - name: JOLT
-    url: https://github.com/BASHLab/jolt-early-exit
-    text: Training and budgeted exit policy for early-exit networks, with scripts that reproduce the ICTAI 2026 results.
-  - name: CPS-Debugger
-    url: https://github.com/BASHLab/CPS-Debugger
-    text: Reconstruction of controller execution traces from plant sensors, with the evaluation protocol from the IAAI-27 submission.
-  - name: PhysioNet Challenge 2026 entry
-    url: https://github.com/shouborno/physionet-challenge-2026
-    text: Interpretable sleep-feature pipeline for predicting cognitive impairment across clinical sites.
 
 awards:
   - year: 2020
