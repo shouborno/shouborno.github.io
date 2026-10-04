@@ -1,0 +1,159 @@
+% Source of truth for the Publications page.
+% Extra fields read by the site (not standard BibTeX):
+%   status   = {under review} | {accepted} (omit when published)
+%   topic    = health | on-device | language | cps | other
+%   code     = repository URL
+%   selected = {true} to show on the home page
+%   note     = one plain sentence shown under the entry
+
+@inproceedings{shouborno2027cpsdebugger,
+  title     = {Program Execution Traces Without Instrumentation: Debugging Industrial Controllers from Physical Process Sensors},
+  author    = {Shouborno, S. A. I. and Ruppel, Emily and Boovaraghavan, Sudershan and Islam, Bashima},
+  booktitle = {AAAI Conference on Innovative Applications of Artificial Intelligence (IAAI-27)},
+  year      = {2027},
+  status    = {under review},
+  topic     = {cps},
+  code      = {https://github.com/BASHLab/CPS-Debugger},
+  selected  = {true},
+  note      = {Reconstructs a controller's branch-level execution trace from plant sensors alone, with Bosch Research.}
+}
+
+@inproceedings{shouborno2026jolt,
+  title     = {JOLT: Jointly Optimized Layerwise Termination for Budgeted Early-Exit Inference},
+  author    = {Shouborno, S. A. I. and Khan, Mohammad Nur Hossain and Islam, Bashima},
+  booktitle = {IEEE International Conference on Tools with Artificial Intelligence (ICTAI)},
+  year      = {2026},
+  status    = {accepted},
+  topic     = {on-device},
+  code      = {https://github.com/BASHLab/jolt-early-exit},
+  selected  = {true},
+  note      = {Holds an early-exit network to its compute budget under distribution shift, overspending by at most 6.8% where fixed thresholds overspend by up to 62%.}
+}
+
+@inproceedings{shouborno2026cinc,
+  title     = {Cross-Site Generalization of Interpretable Sleep Features for Predicting Future Cognitive Impairment},
+  author    = {Shouborno, S. A. I. and Islam, Bashima},
+  booktitle = {Computing in Cardiology (CinC)},
+  year      = {2026},
+  topic     = {health},
+  code      = {https://github.com/shouborno/physionet-challenge-2026},
+  selected  = {true},
+  note      = {Our entry to the PhysioNet Challenge 2026: screening for cognitive impairment from overnight sleep studies across clinical sites.}
+}
+
+@inproceedings{bliss2026concord,
+  title     = {Concord: An Agreement-Aware Multi-Adjudication Pipeline for LLM Evaluation},
+  author    = {Bliss, Tyler and Verma, Mahit and Iyer-Singh, Aila and Biswas, Subrata and Imran, Sheikh Asif and Islam, Bashima},
+  booktitle = {Proceedings of the Fifth Workshop on Generation, Evaluation and Metrics (GEM)},
+  pages     = {502--510},
+  year      = {2026},
+  doi       = {10.18653/v1/2026.gem-main.46},
+  topic     = {language},
+  code      = {https://github.com/BASHLab/concord}
+}
+
+@inproceedings{shouborno2025llasa,
+  title     = {LLaSA: A Sensor-Aware LLM for Natural Language Reasoning of Human Activity from IMU Data},
+  author    = {Shouborno, S. A. I. and Khan, Mohammad Nur Hossain and Biswas, Subrata and Islam, Bashima},
+  booktitle = {Companion of the 2025 ACM International Joint Conference on Pervasive and Ubiquitous Computing (UbiComp Companion)},
+  pages     = {893--899},
+  year      = {2025},
+  doi       = {10.1145/3714394.3756187},
+  arxiv     = {2406.14498},
+  topic     = {language},
+  code      = {https://github.com/BASHLab/LLaSA},
+  selected  = {true},
+  note      = {A multimodal LLM that answers open-ended questions about human activity directly from wearable IMU signals.}
+}
+
+@mastersthesis{shouborno2025thesis,
+  title     = {Interpretable and Efficient AI for Sensor-Rich Mobile and Embedded Systems},
+  author    = {Shouborno, S. A. I.},
+  school    = {Worcester Polytechnic Institute},
+  year      = {2025},
+  topic     = {other}
+}
+
+@misc{almuntasir2025ivr,
+  title     = {System and Method for Optimizing a User Interaction Session within an Interactive Voice Response System},
+  author    = {Al Muntasir, T. and Islam, M. T. and Imran, S. A.},
+  howpublished = {U.S. Patent Application No. 18/378,118},
+  year      = {2025},
+  topic     = {language}
+}
+
+@article{mahmud2022resse,
+  title     = {Res-SE-ConvNet: A Deep Neural Network for Hypoxemia Severity Prediction for Hospital In-Patients Using Photoplethysmograph Signal},
+  author    = {Mahmud, T. I. and Imran, S. A. and Shahnaz, C.},
+  journal   = {IEEE Journal of Translational Engineering in Health and Medicine},
+  volume    = {10},
+  pages     = {1--9},
+  year      = {2022},
+  doi       = {10.1109/JTEHM.2022.3217428},
+  topic     = {health},
+  code      = {https://github.com/shouborno/RES-SE-ConvNet}
+}
+
+@inproceedings{imran2020mrna,
+  title     = {COVID-19 mRNA Vaccine Degradation Prediction Using Regularized LSTM Model},
+  author    = {Imran, S. A. and Islam, M. T. and Shahnaz, C. and Islam, M. T. and Imam, O. T. and Haque, M.},
+  booktitle = {IEEE International Women in Engineering Conference on Electrical and Computer Engineering (WIECON-ECE)},
+  pages     = {328--331},
+  year      = {2020},
+  doi       = {10.1109/WIECON-ECE52138.2020.9398044},
+  topic     = {other},
+  code      = {https://github.com/shouborno/mRNA-vaccine-degradation-prediction-COVID}
+}
+
+@inproceedings{imam2020tb,
+  title     = {Detection of Tuberculosis from Chest X-Ray Images Based on Modified Inception Deep Neural Network Model},
+  author    = {Imam, O. T. and Haque, M. and Shahnaz, C. and Imran, S. A. and Islam, M. T. and Islam, M. T.},
+  booktitle = {IEEE International Women in Engineering Conference on Electrical and Computer Engineering (WIECON-ECE)},
+  pages     = {360--363},
+  year      = {2020},
+  doi       = {10.1109/WIECON-ECE52138.2020.9397994},
+  topic     = {other}
+}
+
+@article{qayyum2020doanet,
+  title     = {DOANet: A Deep Dilated Convolutional Neural Network Approach for Search and Rescue with Drone-Embedded Sound Source Localization},
+  author    = {Qayyum, A. B. A. and Hassan, K. N. and Anika, A. and Shadiq, M. F. and Rahman, M. M. and Islam, M. T. and Imran, S. A. and Hossain, S. and Haque, M. A.},
+  journal   = {EURASIP Journal on Audio, Speech, and Music Processing},
+  volume    = {2020},
+  number    = {1},
+  pages     = {16},
+  year      = {2020},
+  doi       = {10.1186/s13636-020-00184-2},
+  topic     = {other},
+  code      = {https://github.com/shouborno/DOANet}
+}
+
+@inproceedings{islam2019fundus,
+  title     = {Source and Camera Independent Ophthalmic Disease Recognition from Fundus Image Using Neural Network},
+  author    = {Islam, M. T. and Imran, S. A. and Arefeen, A. and Hasan, M. and Shahnaz, C.},
+  booktitle = {IEEE International Conference on Signal Processing, Information, Communication and Systems (SPICSCON)},
+  pages     = {59--63},
+  year      = {2019},
+  doi       = {10.1109/SPICSCON48833.2019.9065162},
+  topic     = {other}
+}
+
+@inproceedings{qayyum2019doa,
+  title     = {Direction of Arrival Estimation through Noise Suppression: A Novel Approach Using GSC Beamforming and Room Acoustic Simulation},
+  author    = {Qayyum, A. B. A. A. and Anika, A. and Miah, M. M. M. and Rahman, M. M. and Hasan, K. N. and Islam, M. T. and Shouborno, S. A. I. and Shadiq, M. F. and Haque, M. A.},
+  booktitle = {IEEE International Conference on Signal Processing, Information, Communication and Systems (SPICSCON)},
+  pages     = {104--108},
+  year      = {2019},
+  doi       = {10.1109/SPICSCON48833.2019.9065151},
+  topic     = {other}
+}
+
+@inproceedings{shouborno2019ecommerce,
+  title     = {Complete Automation of an E-commerce System with Internet of Things},
+  author    = {Shouborno, S. A. I. and Mahmud, T. I. and Ishraq, N. and Ali, R. and Joy, T. H. and Fattah, S. A. and Bhattacharjee, A. and Shahnaz, C.},
+  booktitle = {IEEE International Conference on Robotics, Automation, Artificial-Intelligence and Internet-of-Things (RAAICON)},
+  pages     = {81--86},
+  year      = {2019},
+  doi       = {10.1109/RAAICON48939.2019.39},
+  topic     = {cps}
+}

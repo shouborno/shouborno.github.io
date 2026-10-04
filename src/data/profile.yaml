@@ -1,0 +1,214 @@
+# Everything on the site that is not a publication lives here.
+# Dates are "YYYY-MM"; "present" marks an ongoing role.
+
+name: S. A. I. Shouborno
+full_name: Sheikh Asif Imran Shouborno
+also_cited_as: [Imran, S. A., Shouborno, S. A. I., Asif Imran Shouborno, S.]
+# Name forms highlighted in author lists
+self_names: ["Shouborno, S. A. I.", "Imran, S. A.", "Imran, Sheikh Asif"]
+
+tagline: >-
+  I build machine learning that reads body-worn and machine-embedded sensors,
+  runs within a device's compute budget, and explains what it sees.
+role: PhD candidate in Electrical and Computer Engineering
+institution: University of Massachusetts Amherst
+institution_url: https://www.umass.edu/
+advisor: Bashima Islam
+advisor_url: https://bashlab.github.io
+lab: BASH Lab
+status: Open to postdoctoral and industry research roles. PhD expected May 2028.
+
+email: sasifimran@umass.edu
+phone: "+1 774-535-9860"
+location: Amherst, Massachusetts
+links:
+  scholar: https://scholar.google.com/citations?user=1DjYaloAAAAJ&hl=en
+  github: https://github.com/shouborno
+  linkedin: https://www.linkedin.com/in/shouborno/
+cv: /cv.pdf
+
+about: >-
+  My research is about making sensor data useful on the devices that collect it.
+  At UMass Amherst I estimate blood pressure from graphene electronic tattoos with
+  the Kireev Lab, and I reconstruct industrial controller behavior from process
+  sensors with Bosch Research. Before that, at WPI, I built LLaSA, a language model
+  that reasons about human activity from IMU data, and JOLT, a training method that
+  keeps early-exit networks within a compute budget. Before my PhD I spent two and
+  a half years shipping speech and conversational AI at Hishab.
+
+# The hero trace: one segment per direction, left to right.
+directions:
+  - id: health
+    title: Continuous physiological monitoring
+    trace: pulse
+    label: Physiology
+    summary: >-
+      Estimating vital signs and health risk from signals that wearables can record
+      all day, with models whose behavior a clinician can inspect.
+    body: >-
+      With the Kireev Lab at UMass Amherst, I am building physics-informed neural
+      networks that estimate blood pressure from graphene electronic tattoo patches,
+      so blood pressure can be tracked continuously without a cuff. Our PhysioNet
+      Challenge 2026 entry screens for future cognitive impairment from overnight
+      sleep studies using interpretable sleep features, and tests whether they
+      hold up across clinical sites. Earlier, I predicted hypoxemia severity in
+      hospital in-patients from the photoplethysmograph.
+  - id: language
+    title: Language models that read sensor data
+    trace: motion
+    label: Sensor language
+    summary: >-
+      Letting people ask questions about what a wearable recorded, and get answers
+      grounded in the signal rather than guessed.
+    body: >-
+      LLaSA pairs an IMU encoder with a language model so it can answer open-ended
+      questions about human activity from raw accelerometer and gyroscope data; we
+      released the SensorCaps and OpenSQA datasets with it. Concord studies when
+      to trust LLM judges, using agreement among several judges as an uncertainty
+      signal. This builds on two and a half years of production conversational AI
+      and speech recognition for Bengali speakers.
+  - id: on-device
+    title: Efficient inference on the device
+    trace: sleep
+    label: On-device
+    summary: >-
+      Spending compute only where an input needs it, so models fit the battery and
+      latency limits of wearables and embedded hardware.
+    body: >-
+      JOLT trains early-exit networks so that each exit's confidence tracks which
+      inputs it gets right, then routes on that confidence to hold a stated compute
+      budget even when the input distribution shifts. Across seven sensor, image,
+      audio and language datasets it ranks first of eleven methods. I also teach in
+      the graduate course On-Device Deep Learning.
+  - id: cps
+    title: Industrial cyber-physical systems
+    trace: square
+    label: Machines
+    summary: >-
+      Applying the same sensor-first methods to machines: diagnosing industrial
+      controllers from what their plants physically do.
+    body: >-
+      At Bosch Research I built a contrastive model that links four modalities from
+      a manufacturing process (video, sensors, program execution traces and text)
+      for language-guided few-shot state classification. The follow-up work
+      reconstructs a controller's branch-level execution trace from plant sensors
+      alone, so faults can be debugged without instrumenting the controller.
+
+news:
+  - date: 2026-09
+    text: JOLT, our budgeted early-exit method, was accepted at ICTAI 2026.
+  - date: 2026-09
+    text: Continued my PhD at UMass Amherst with Bashima Islam's lab.
+  - date: 2026-09
+    text: Submitted our Bosch collaboration on debugging industrial controllers from process sensors to IAAI-27.
+  - date: 2026-07
+    text: Concord, on agreement-aware LLM evaluation, appeared at the GEM workshop.
+  - date: 2025-12
+    text: Completed my M.S. in Electrical and Computer Engineering at WPI.
+  - date: 2025-10
+    text: LLaSA appeared at UbiComp 2025.
+  - date: 2025-05
+    text: Joined Bosch Research in Pittsburgh as an AI for cyber-physical systems intern.
+
+experience:
+  - org: University of Massachusetts Amherst
+    title: Research Assistant
+    start: 2026-09
+    end: present
+    place: Amherst, MA
+    points:
+      - Cuffless blood pressure estimation from graphene electronic tattoo sensors, with the Kireev Lab.
+      - Fault diagnosis for industrial controllers from sensor and program trace data, with Bosch Research.
+  - org: Robert Bosch LLC, Bosch Research
+    title: AI for Cyber-Physical Systems Intern
+    start: 2025-05
+    end: 2025-08
+    place: Pittsburgh, PA
+    points:
+      - Built a contrastive multimodal model connecting vision, sensor, program trace and text data for language-guided few-shot functional state classification.
+  - org: Worcester Polytechnic Institute
+    title: Research and Teaching Assistant
+    start: 2023-08
+    end: 2026-08
+    place: Worcester, MA
+    points:
+      - BASH Lab research on LLMs for IMU-based activity reasoning and on budgeted early-exit inference.
+      - "TA for On-Device Deep Learning (CS 525 / DS 595 / ECE 579), Discrete-Time Signal and System Analysis (ECE 2312), Introduction to Digital Circuit Design (ECE 2029), and Sensors, Circuits, and Systems (ECE 2019)."
+  - org: Hishab Technologies
+    title: Machine Learning Engineer
+    start: 2021-02
+    end: 2023-07
+    place: Dhaka, Bangladesh
+    points:
+      - Built telephony conversational AI for Bengali speakers, covering speech recognition, text to speech, NER, language models and grapheme-to-phoneme conversion.
+      - Deployed services for banking and microfinance clients, including Bank Asia and Hitachi India.
+      - Co-inventor on a U.S. patent application for optimizing interactive voice response sessions.
+      - Worked with partner Chowa Giken (Japan) on car interior image enhancement.
+  - org: Socian Ltd.
+    title: Machine Learning Engineer Intern
+    start: 2020-09
+    end: 2020-12
+    place: Dhaka, Bangladesh
+    points:
+      - NLP and speech processing for Bengali, including POS tagging, NER, sentiment and topic classification, and ASR.
+  - org: Gyanjam Corporations
+    title: CTO
+    start: 2018-04
+    end: 2019-03
+    place: Dhaka, Bangladesh
+    points:
+      - Built an e-commerce and e-learning site, designed PCBs, and taught an 8-day C programming workshop for BUET students.
+  - org: Onnorokom Electronics
+    title: Research Intern
+    start: 2016-07
+    end: 2017-12
+    place: Dhaka, Bangladesh
+    points:
+      - Designed science kit products for school students and answered their scientific questions by email.
+
+education:
+  - degree: Ph.D., Electrical and Computer Engineering
+    school: University of Massachusetts Amherst
+    start: 2026-09
+    end: 2028-05
+    expected: true
+    detail: Advisor Bashima Islam, continuing the doctoral work begun at WPI.
+  - degree: Ph.D. studies, Electrical and Computer Engineering
+    school: Worcester Polytechnic Institute
+    start: 2023-08
+    end: 2026-08
+    detail: GPA 4.00/4.00.
+  - degree: M.S., Electrical and Computer Engineering
+    school: Worcester Polytechnic Institute
+    start: 2023-08
+    end: 2025-12
+    detail: "Thesis: Interpretable and Efficient AI for Sensor-Rich Mobile and Embedded Systems."
+  - degree: B.Sc., Electrical and Electronic Engineering
+    school: Bangladesh University of Engineering and Technology (BUET)
+    start: 2016-02
+    end: 2021-02
+    detail: "Thesis: Audiovisual emotion recognition using a multi-head attention network, advised by Celia Shahnaz."
+
+awards:
+  - year: 2020
+    text: 5th place, IEEE Video and Image Processing Cup at ICIP 2020 (real-time vehicle detection and tracking with fisheye cameras)
+  - year: 2020
+    text: 4th place, IEEE Signal Processing Cup at ICASSP 2020 (unsupervised anomaly detection for autonomous drones)
+  - year: 2019
+    text: 2nd place, IEEE Video and Image Processing Cup at ICIP 2019 (activity recognition from body cameras)
+  - year: 2018
+    text: National champion and 22nd worldwide, IEEEXtreme 12.0 programming contest (national champion in 2017 as well)
+
+service:
+  - years: 2019 to 2021
+    text: Chair, IEEE Signal Processing Society student chapter at BUET. Organized the 2019 IEEE SPS Winter School on Multimodal Signal Processing; the chapter grew into the largest in Bangladesh and received the IEEE SPS Student Branch Chapter Growth Reward.
+  - years: 2017 to 2019
+    text: IEEEXtreme ambassador and 2019 country lead for Bangladesh; ran programming workshops.
+
+skills:
+  - group: Machine learning
+    items: PyTorch, multimodal and contrastive learning, LLM fine-tuning, early-exit and efficient inference, physics-informed models
+  - group: Signals
+    items: Biomedical signals (PPG, bioimpedance, sleep PSG), IMU, audio and speech, image and video
+  - group: Systems
+    items: SLURM clusters, MLOps, GCP and AWS, Kafka, Jenkins, microcontrollers, FPGA

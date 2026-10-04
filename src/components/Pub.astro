@@ -1,0 +1,57 @@
+---
+import { profile } from "../lib/data.js";
+import { authors, venue, citation } from "../lib/bib.js";
+
+const { pub, showNote = false } = Astro.props;
+const people = authors(pub, profile.self_names);
+const links = [
+  pub.doi && ["Paper", `https://doi.org/${pub.doi}`],
+  pub.arxiv && ["arXiv", `https://arxiv.org/abs/${pub.arxiv}`],
+  pub.code && ["Code", pub.code],
+].filter(Boolean);
+---
+<article class="pub" data-topic={pub.topic}>
+  <h3 class="title">{pub.title}</h3>
+  <p class="authors">
+    {people.map((a, i) => (
+      <Fragment>
+        {a.self ? <strong>{a.name}</strong> : a.name}{i < people.length - 1 ? ", " : ""}
+      </Fragment>
+    ))}
+  </p>
+  <p class="venue">
+    <em>{venue(pub)}</em>{pub.pages && pub.type !== "misc" ? `, pp. ${pub.pages}` : ""}{pub.status ? "" : `, ${pub.year}`}.
+    {pub.status === "accepted" && <span class="status">Accepted</span>}
+  </p>
+  {showNote && pub.note && <p class="note">{pub.note}</p>}
+  <div class="links">
+    {links.map(([label, url]) => <a href={url}>{label}</a>)}
+    <details>
+      <summary>BibTeX</summary>
+      <pre><code>{citation(pub)}</code></pre>
+    </details>
+  </div>
+</article>
+
+<style>
+  .pub { padding: 0.15rem 0 0.4rem; }
+  .title { font-size: 1.05rem; margin: 0 0 0.2rem; line-height: 1.35; }
+  .authors, .venue, .note { margin: 0; font-size: 0.97rem; }
+  .authors { color: var(--muted); }
+  .authors strong { color: var(--ink); font-weight: 600; }
+  .note { margin-top: 0.35rem; }
+  .status {
+    font-family: var(--ui); font-size: 0.8rem; margin-left: 0.4rem; padding: 0.05rem 0.45rem;
+    border: 1px solid var(--trace); color: var(--trace); border-radius: 3px; white-space: nowrap;
+  }
+  .links { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.2rem 1rem; margin-top: 0.35rem; font-family: var(--ui); font-size: 0.88rem; }
+  .links a { color: var(--muted); }
+  .links a:hover { color: var(--trace); }
+  summary { cursor: pointer; color: var(--muted); }
+  summary:hover { color: var(--trace); }
+  details[open] { flex-basis: 100%; }
+  pre {
+    margin: 0.5rem 0 0; padding: 0.75rem; overflow-x: auto; font-size: 0.8rem; line-height: 1.45;
+    border: 1px solid var(--rule); border-radius: 4px; background: color-mix(in srgb, var(--grid) 25%, transparent);
+  }
+</style>

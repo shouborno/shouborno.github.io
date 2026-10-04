@@ -1,0 +1,55 @@
+# Earlier work, newest first. Shown on /projects.
+- year: 2024
+  title: LLM as a discriminator for machine-generated news headlines
+  context: WPI course project
+  text: Fine-tuned a GPT model to tell human-written from generated headlines, as an evaluation signal that does not depend on BLEU or ROUGE.
+  links:
+    - { label: Code, url: "https://github.com/Ryan-Saklad/NYT-title-predictor" }
+- year: 2024
+  title: Explaining real and fake images with a vision-language model
+  context: WPI course project
+  text: Built a dataset of GPT-written explanations for GAN and diffusion fakes and fine-tuned LLaVA on it.
+  links:
+    - { label: Code, url: "https://github.com/CarrotPeeler/CS545-Real-Fake-Image-Detection" }
+- year: 2023
+  title: Single-pass machine unlearning for text classification
+  context: WPI course project
+  text: Used error-maximizing noise to remove whole classes from DBPedia classifiers in one epoch while keeping accuracy on the rest.
+  links:
+    - { label: Code, url: "https://github.com/shouborno/nlp_fast_unlearning" }
+- year: 2023
+  title: Checking deep unlearning with saliency maps
+  context: WPI course project
+  text: Used Grad-CAM, HiResCAM and EigenCAM to show that unlearned CIFAR-10 classes lose their saliency, supporting the Fast Unlearning paper's claims.
+  links:
+    - { label: Code, url: "https://github.com/SiddharthaPradhan/MachineUnleaningProject" }
+- year: 2021
+  title: Telephony conversational AI for financial services
+  context: Hishab
+  text: Voice banking for Bank Asia, due reporting for Hitachi India, and product ordering for Indian small businesses, built on Kaldi and NeMo ASR, TTS and Rasa.
+- year: 2021
+  title: Car interior image enhancement
+  context: Chowa Giken, Japan
+  text: Removed glare, haze and reflections from car interior photos, using ERRNet models trained on real and synthetic data within an inference-time limit.
+- year: 2020
+  title: Real-time vehicle tracking with fisheye cameras
+  context: IEEE VIP Cup 2020, 5th place
+  text: A modified YOLOv4 detector with an EfficientNet-B2 backbone, robust to day and night lighting and fisheye distortion.
+- year: 2020
+  title: Unsupervised anomaly detection for drones
+  context: IEEE SP Cup 2020, 4th place
+  text: Explained abnormal accelerations and rotations in flight logs with an LSTM and attention model trained only on normal flights.
+- year: 2020
+  title: Audiovisual emotion recognition
+  context: B.Sc. thesis, BUET
+  text: A transformer over mel spectrogram and OpenFace facial features.
+- year: 2019
+  title: Activity recognition and privacy protection from body cameras
+  context: IEEE VIP Cup 2019, 2nd place
+  text: Classified office activities with a two-stage classifier and blurred faces, screens and washroom scenes in real time.
+- year: 2019
+  title: Drone-embedded sound source localization
+  context: IEEE SP Cup 2019
+  text: Estimated azimuth and elevation of sound sources from a drone microphone array; became the DOANet journal paper.
+  links:
+    - { label: Code, url: "https://github.com/shouborno/DOANet" }

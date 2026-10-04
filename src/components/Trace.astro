@@ -1,0 +1,133 @@
+---
+// The hero signal: one continuous line whose shape changes per research
+// direction (pulse wave, IMU motion, early-exit steps, controller square wave).
+// Generated deterministically so the drawing is identical on every build.
+import { profile } from "../lib/data.js";
+
+const W = 1000, H = 140, MID = 78;
+const segW = W / profile.directions.length;
+
+function pulse(x0, w) {
+  // Four PPG-like beats: fast systolic rise, dicrotic notch, slow decay.
+  const pts = [];
+  const beats = 4, bw = w / beats;
+  for (let b = 0; b < beats; b++) {
+    for (let t = 0; t <= 1; t += 0.02) {
+      const sys = Math.exp(-((t - 0.22) ** 2) / 0.006) * 46;
+      const dia = Math.exp(-((t - 0.5) ** 2) / 0.01) * 16;
+      pts.push([x0 + (b + t) * bw, MID + 18 - sys - dia]);
+    }
+  }
+  return pts;
+}
+
+function motion(x0, w) {
+  // Accelerometer-like: walking cadence plus higher-frequency jitter.
+  const pts = [];
+  for (let t = 0; t <= 1; t += 0.004) {
+    const x = x0 + t * w;
+    const y = MID
+      + Math.sin(t * 38) * 22 * Math.sin(t * Math.PI)
+      + Math.sin(t * 131) * 6
+      + Math.sin(t * 263 + 1.3) * 3;
+    pts.push([x, y]);
+  }
+  return pts;
+}
+
+function steps(x0, w) {
+  // Exits at increasing depth: each step holds, then drops to the next level.
+  const levels = [MID - 34, MID - 14, MID + 6, MID + 26, MID + 6, MID - 14];
+  const pts = [];
+  const sw = w / levels.length;
+  levels.forEach((y, i) => {
+    pts.push([x0 + i * sw, y], [x0 + (i + 1) * sw, y]);
+  });
+  return pts;
+}
+
+function square(x0, w) {
+  // Controller output: square wave with uneven duty cycle, as a PWM signal.
+  const duty = [0.6, 0.3, 0.5, 0.25, 0.7, 0.4];
+  const pts = [];
+  const pw = w / duty.length, hi = MID - 30, lo = MID + 22;
+  duty.forEach((d, i) => {
+    const xa = x0 + i * pw;
+    pts.push([xa, lo], [xa, hi], [xa + d * pw, hi], [xa + d * pw, lo]);
+  });
+  pts.push([x0 + w, lo]);
+  return pts;
+}
+
+const shapes = { pulse, motion, sleep: steps, square };
+const segments = profile.directions.map((d, i) => {
+  const pts = shapes[d.trace](i * segW + 8, segW - 16);
+  return { ...d, x: i * segW, pts };
+});
+
+// Join segments with short level runs so the line never breaks.
+const all = [];
+segments.forEach((s) => {
+  if (all.length) all.push([s.pts[0][0], all.at(-1)[1]]);
+  all.push(...s.pts);
+});
+const d = "M" + all.map(([x, y]) => `${x.toFixed(1)} ${y.toFixed(1)}`).join("L");
+---
+<figure class="trace" aria-label="A signal line that changes shape across four research areas">
+  <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" role="img" aria-hidden="true">
+    <defs>
+      <pattern id="grid-minor" width="10" height="10" patternUnits="userSpaceOnUse">
+        <path d="M10 0H0V10" fill="none" class="grid-minor" />
+      </pattern>
+      <pattern id="grid-major" width="50" height="50" patternUnits="userSpaceOnUse">
+        <rect width="50" height="50" fill="url(#grid-minor)" />
+        <path d="M50 0H0V50" fill="none" class="grid-major" />
+      </pattern>
+    </defs>
+    <rect width={W} height={H} fill="url(#grid-major)" />
+    <path d={d} class="signal" pathLength="1" />
+  </svg>
+  <ol class="trace-labels">
+    {segments.map((s) => (
+      <li><a href={`/research#${s.id}`}><span class="long">{s.title}</span><span class="short">{s.label}</span></a></li>
+    ))}
+  </ol>
+</figure>
+
+<style>
+  .trace { margin: 0; }
+  svg { display: block; width: 100%; height: clamp(96px, 16vw, 150px); overflow: visible; }
+  .grid-minor { stroke: var(--grid); stroke-width: 0.5; vector-effect: non-scaling-stroke; }
+  .grid-major { stroke: var(--grid); stroke-width: 1; vector-effect: non-scaling-stroke; }
+  .signal {
+    fill: none;
+    stroke: var(--trace);
+    stroke-width: 2;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+    animation: draw 2.4s cubic-bezier(0.45, 0, 0.2, 1) both;
+  }
+  @keyframes draw { from { stroke-dashoffset: 1; } }
+  @media (prefers-reduced-motion: reduce) { .signal { animation: none; } }
+  .trace-labels {
+    list-style: none;
+    margin: 0.6rem 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0 1rem;
+    font-family: var(--ui);
+    font-size: 0.85rem;
+    line-height: 1.3;
+  }
+  .trace-labels a { color: var(--muted); text-decoration: none; border-top: 2px solid var(--grid); display: block; padding-top: 0.4rem; }
+  .trace-labels a:hover, .trace-labels a:focus-visible { color: var(--trace); border-color: var(--trace); }
+  .short { display: none; }
+  @media (max-width: 560px) {
+    .trace-labels { gap: 0 0.5rem; font-size: 0.8rem; }
+    .long { display: none; }
+    .short { display: inline; }
+  }
+</style>

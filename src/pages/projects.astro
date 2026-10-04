@@ -1,0 +1,31 @@
+---
+import Base from "../layouts/Base.astro";
+import { projects } from "../lib/data.js";
+---
+<Base title="Earlier work">
+  <header class="page-head">
+    <h1>Earlier work</h1>
+    <p>Course projects, competitions and industry work from 2019 to 2024, before my current research.</p>
+  </header>
+  <ul class="dated">
+    {projects.map((p) => (
+      <li>
+        <span class="when">{p.year}</span>
+        <div>
+          <h3 class="item">{p.title}</h3>
+          <p class="muted ctx">{p.context}</p>
+          <p class="text">{p.text}</p>
+          {p.links && <p class="ui links">{p.links.map((l) => <a href={l.url}>{l.label}</a>)}</p>}
+        </div>
+      </li>
+    ))}
+  </ul>
+</Base>
+
+<style>
+  .item { margin: 0; font-size: 1.02rem; }
+  .ctx { margin: 0; font-size: 0.92rem; font-family: var(--ui); }
+  .text { margin: 0.3rem 0 0; }
+  .links { margin: 0.3rem 0 0; font-size: 0.88rem; display: flex; gap: 1rem; }
+  .links a { color: var(--muted); }
+</style>

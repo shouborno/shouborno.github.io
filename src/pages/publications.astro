@@ -1,0 +1,52 @@
+---
+import Base from "../layouts/Base.astro";
+import Pub from "../components/Pub.astro";
+import { profile, publications } from "../lib/data.js";
+
+const topics = [
+  ["all", "All"],
+  ...profile.directions.map((d) => [d.id, d.title]),
+];
+---
+<Base title="Publications">
+  <header class="page-head">
+    <h1>Publications</h1>
+    <p>
+      {publications.length} papers, theses and patents. Also cited as Imran, S. A.
+      Citation counts are on <a href={profile.links.scholar}>Google Scholar</a>.
+    </p>
+  </header>
+  <div class="filters ui" role="group" aria-label="Filter by research direction" hidden>
+    {topics.map(([id, label], i) => (
+      <button type="button" data-filter={id} aria-pressed={i === 0 ? "true" : "false"}>{label}</button>
+    ))}
+  </div>
+  <ul class="dated" id="pubs">
+    {publications.map((p) => (
+      <li data-topic={p.topic}><span class="when">{p.status === "under review" ? "Under review" : p.year}</span><Pub pub={p} /></li>
+    ))}
+  </ul>
+</Base>
+
+<script is:inline>
+  const box = document.querySelector(".filters");
+  box.hidden = false;
+  box.addEventListener("click", (e) => {
+    const b = e.target.closest("button");
+    if (!b) return;
+    box.querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", x === b));
+    document.querySelectorAll("#pubs > li").forEach((li) => {
+      li.hidden = b.dataset.filter !== "all" && li.dataset.topic !== b.dataset.filter;
+    });
+  });
+</script>
+
+<style>
+  .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0 0 1.5rem; }
+  .filters button {
+    font: inherit; font-size: 0.88rem; padding: 0.3rem 0.75rem; cursor: pointer;
+    color: var(--muted); background: none; border: 1.5px solid var(--rule); border-radius: 4px;
+  }
+  .filters button[aria-pressed="true"] { color: var(--ink); border-color: var(--trace); }
+  #pubs > li[hidden] { display: none; }
+</style>

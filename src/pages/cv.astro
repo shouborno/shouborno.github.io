@@ -1,0 +1,63 @@
+---
+import Base from "../layouts/Base.astro";
+import { profile, month } from "../lib/data.js";
+
+const span = (s, e) => `${month(s)} to ${month(e)}`;
+---
+<Base title="Experience">
+  <header class="page-head">
+    <h1>Experience</h1>
+    <p>The full CV is a <a href={profile.cv}>PDF</a>.</p>
+  </header>
+
+  <h2>Positions</h2>
+  <ul class="dated">
+    {profile.experience.map((x) => (
+      <li>
+        <span class="when">{month(x.start)}<br />to {month(x.end)}</span>
+        <div>
+          <h3 class="item">{x.title}, {x.org}</h3>
+          <p class="muted where">{x.place}</p>
+          <ul class="points">{x.points.map((p) => <li>{p}</li>)}</ul>
+        </div>
+      </li>
+    ))}
+  </ul>
+
+  <h2>Education</h2>
+  <ul class="dated">
+    {profile.education.map((x) => (
+      <li>
+        <span class="when">{month(x.end)}{x.expected ? " (expected)" : ""}</span>
+        <div>
+          <h3 class="item">{x.degree}</h3>
+          <p class="where">{x.school}</p>
+          <p class="muted where">{x.detail}</p>
+        </div>
+      </li>
+    ))}
+  </ul>
+
+  <h2>Awards</h2>
+  <ul class="dated">
+    {profile.awards.map((a) => <li><span class="when">{a.year}</span><span>{a.text}</span></li>)}
+  </ul>
+
+  <h2>Service</h2>
+  <ul class="dated">
+    {profile.service.map((s) => <li><span class="when">{s.years}</span><span>{s.text}</span></li>)}
+  </ul>
+
+  <h2>Skills</h2>
+  <ul class="dated">
+    {profile.skills.map((s) => <li><span class="when">{s.group}</span><span>{s.items}</span></li>)}
+  </ul>
+</Base>
+
+<style>
+  .item { margin: 0; font-size: 1.02rem; }
+  .where { margin: 0; font-size: 0.95rem; }
+  .points { margin: 0.35rem 0 0; padding-left: 1.1rem; list-style: disc; }
+  .points li::marker { color: var(--muted); }
+  .points li { margin: 0.15rem 0; max-width: var(--measure); }
+</style>

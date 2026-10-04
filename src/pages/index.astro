@@ -1,0 +1,73 @@
+---
+import Base from "../layouts/Base.astro";
+import Trace from "../components/Trace.astro";
+import Pub from "../components/Pub.astro";
+import { profile, publications, month } from "../lib/data.js";
+
+const selected = publications.filter((p) => p.selected === "true");
+const news = profile.news.slice(0, 5);
+---
+<Base>
+  <section class="hero">
+    <div class="intro">
+      <h1>{profile.name}</h1>
+      <p class="lede">{profile.tagline}</p>
+      <p class="ui affil">
+        {profile.role}, <a href={profile.institution_url}>{profile.institution}</a>.
+        Advised by <a href={profile.advisor_url}>{profile.advisor}</a>.
+      </p>
+      <p class="ui status">{profile.status}</p>
+      <ul class="buttons">
+        <li><a class="primary" href={profile.cv}>Download CV</a></li>
+        <li><a href={`mailto:${profile.email}`}>Email me</a></li>
+        <li><a href={profile.links.scholar}>Google Scholar</a></li>
+      </ul>
+    </div>
+    <img class="photo" src="/photo.jpg" width="720" height="720" alt={`Portrait of ${profile.full_name}`} />
+  </section>
+
+  <Trace />
+
+  <section>
+    <h2>About</h2>
+    <p>{profile.about}</p>
+  </section>
+
+  <section>
+    <h2>Selected papers</h2>
+    <ul class="dated">
+      {selected.map((p) => (
+        <li><span class="when">{p.status === "under review" ? "Under review" : p.year}</span><Pub pub={p} showNote /></li>
+      ))}
+    </ul>
+    <p class="ui more"><a href="/publications">All publications</a></p>
+  </section>
+
+  <section>
+    <h2>News</h2>
+    <ul class="dated">
+      {news.map((n) => (
+        <li><span class="when">{month(n.date)}</span><span>{n.text}</span></li>
+      ))}
+    </ul>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: start;
+    padding: 2.5rem 0 2rem;
+  }
+  .lede { margin-top: 1rem; }
+  .affil { margin: 0 0 0.25rem; }
+  .status { color: var(--muted); margin: 0; }
+  .photo {
+    width: clamp(132px, 18vw, 200px); height: auto; aspect-ratio: 1; object-fit: cover;
+    border-radius: 50%; border: 3px solid var(--paper); box-shadow: 0 0 0 1.5px var(--grid);
+  }
+  .more { margin-top: 1rem; }
+  @media (max-width: 640px) {
+    .hero { grid-template-columns: 1fr; padding-top: 1rem; }
+    .photo { order: -1; width: 112px; }
+  }
+</style>

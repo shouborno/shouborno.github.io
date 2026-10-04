@@ -1,0 +1,34 @@
+---
+import Base from "../layouts/Base.astro";
+import Pub from "../components/Pub.astro";
+import { profile, publications } from "../lib/data.js";
+---
+<Base title="Research">
+  <header class="page-head">
+    <h1>Research</h1>
+    <p>Four directions share one approach: model the physics of the sensor, spend compute where the input needs it, and explain the result.</p>
+  </header>
+  {profile.directions.map((d) => {
+    const pubs = publications.filter((p) => p.topic === d.id);
+    return (
+      <section id={d.id} class="direction">
+        <h2>{d.title}</h2>
+        <p class="summary">{d.summary}</p>
+        <p>{d.body}</p>
+        {pubs.length > 0 && (
+          <ul class="dated">
+            {pubs.map((p) => (
+              <li><span class="when">{p.status === "under review" ? "Under review" : p.year}</span><Pub pub={p} /></li>
+            ))}
+          </ul>
+        )}
+      </section>
+    );
+  })}
+</Base>
+
+<style>
+  .direction { scroll-margin-top: 1rem; border-top: 2px solid var(--grid); margin-top: 2.5rem; }
+  .direction h2 { margin-top: 1.25rem; }
+  .summary { font-style: italic; color: var(--muted); }
+</style>

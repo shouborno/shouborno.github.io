@@ -1,0 +1,92 @@
+---
+import "../styles/global.css";
+import { profile } from "../lib/data.js";
+
+const { title, description = profile.tagline } = Astro.props;
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+const nav = [
+  ["/research", "Research"],
+  ["/publications", "Publications"],
+  ["/cv", "Experience"],
+  ["/projects", "Earlier work"],
+];
+const pageTitle = title ? `${title} | ${profile.full_name}` : `${profile.full_name}`;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL("/photo.jpg", Astro.site)} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet" />
+    <script is:inline>
+      try {
+        const t = localStorage.getItem("theme");
+        if (t) document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <header class="site-header wrap">
+      <a class="home" href="/">{profile.name}</a>
+      <nav aria-label="Main">
+        <ul>
+          {nav.map(([href, label]) => (
+            <li><a href={href} aria-current={path === href ? "page" : undefined}>{label}</a></li>
+          ))}
+          <li><a href={profile.cv}>CV</a></li>
+          <li><button id="theme" type="button" aria-label="Switch light or dark theme">Theme</button></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="wrap">
+      <slot />
+    </main>
+    <footer class="site-footer wrap">
+      <p>
+        <a href={`mailto:${profile.email}`}>{profile.email}</a>,
+        {profile.phone}.
+        <a href={profile.links.scholar}>Google Scholar</a>,
+        <a href={profile.links.github}>GitHub</a>,
+        <a href={profile.links.linkedin}>LinkedIn</a>.
+      </p>
+      <p class="muted">Updated {new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })}.</p>
+    </footer>
+    <script is:inline>
+      document.getElementById("theme").addEventListener("click", () => {
+        const root = document.documentElement;
+        const dark = root.dataset.theme
+          ? root.dataset.theme === "dark"
+          : matchMedia("(prefers-color-scheme: dark)").matches;
+        root.dataset.theme = dark ? "light" : "dark";
+        try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  .site-header {
+    display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+    gap: 0.5rem 1.5rem; padding-top: 1.25rem; padding-bottom: 1.25rem;
+    font-family: var(--ui);
+  }
+  .home { font-weight: 700; text-decoration: none; font-size: 1.05rem; }
+  nav ul { display: flex; flex-wrap: wrap; gap: 0.25rem 1.1rem; list-style: none; margin: 0; padding: 0; font-size: 0.95rem; }
+  nav a { text-decoration: none; color: var(--muted); }
+  nav a:hover, nav a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-decoration-color: var(--trace); }
+  button#theme {
+    font: inherit; color: var(--muted); background: none; border: 0; padding: 0; cursor: pointer;
+  }
+  button#theme:hover { color: var(--ink); }
+  .site-footer { margin-top: 5rem; padding-top: 1.5rem; padding-bottom: 3rem; border-top: 1px solid var(--rule); font-family: var(--ui); font-size: 0.9rem; }
+  .site-footer p { margin: 0 0 0.4rem; }
+</style>
