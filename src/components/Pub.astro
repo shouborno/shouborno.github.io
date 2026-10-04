@@ -1,6 +1,6 @@
 ---
 import { profile } from "../lib/data.js";
-import { authors, venue, citation } from "../lib/bib.js";
+import { authors, venue, citation, details } from "../lib/bib.js";
 
 const { pub, showNote = false } = Astro.props;
 const people = authors(pub, profile.self_names);
@@ -20,7 +20,7 @@ const links = [
     ))}
   </p>
   <p class="venue">
-    <em>{venue(pub)}</em>{pub.pages && pub.type !== "misc" ? `, pp. ${pub.pages}` : ""}{pub.status ? "" : `, ${pub.year}`}.
+    <em>{venue(pub)}</em>{details(pub) ? `, ${details(pub)}` : ""}{pub.status ? "" : `, ${pub.year}`}.
     {pub.status === "accepted" && <span class="status">Accepted</span>}
   </p>
   {showNote && pub.note && <p class="note">{pub.note}</p>}

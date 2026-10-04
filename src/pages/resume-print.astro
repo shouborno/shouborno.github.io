@@ -43,7 +43,7 @@ const edu = profile.education;
   <section>
     <h2>Education</h2>
     {edu.map((x) => (
-      <div class="row line"><span><strong>{x.degree}</strong><span class="sub">, {x.school}</span></span><span class="date">{x.expected ? `Expected ${month(x.end)}` : month(x.end)}</span></div>
+      <div class="row line"><span><strong>{x.degree}</strong><span class="sub">, {x.school}</span></span><span class="date">{x.expected ? `${month(x.start)} – ${month(x.end)} (expected)` : month(x.end)}</span></div>
     ))}
   </section>
 
@@ -65,7 +65,7 @@ const edu = profile.education;
           {authors(p, profile.self_names).map((a, i, all) => (
             <Fragment>{a.self ? <strong>{a.name}</strong> : a.name}{i < all.length - 1 ? ", " : ". "}</Fragment>
           ))}
-          <span class="ptitle">{p.title}.</span> <em>{venue(p).match(/\(([^)]+)\)\s*$/)?.[1] ?? venue(p)}</em>{p.status === "under review" ? ", under review." : `, ${p.year}.`}
+          <span class="ptitle">{p.title}.</span> <em>{venue(p).match(/\(([^)]+)\)\s*$/)?.[1] ?? venue(p)}</em>{p.status === "under review" ? ", under review." : p.status === "accepted" ? `, accepted, ${p.year}.` : `, ${p.year}.`}
         </li>
       ))}
     </ul>

@@ -67,8 +67,8 @@ directions:
     body: >-
       With Bosch Research, I reconstruct the branch-level program execution trace of an
       industrial controller
-      from the plant's process sensors alone. Engineers can then debug control
-      software without adding logging to the deployed controller. During my Bosch
+      from the plant's process sensors alone, so faults in control software can be
+      localized without adding logging to the deployed controller. During my Bosch
       internship I built a contrastive model linking four modalities from a
       manufacturing process (vision, sensor, program trace and text data) for
       language-guided few-shot state classification.
@@ -173,7 +173,7 @@ experience:
 education:
   - degree: Ph.D., Electrical and Computer Engineering
     school: University of Massachusetts Amherst
-    start: 2026-09
+    start: 2023-08
     end: 2028-05
     expected: true
     detail: Advisor Bashima Islam. Began at Worcester Polytechnic Institute in Aug 2023; transferred with the lab in 2026.
@@ -186,7 +186,7 @@ education:
     school: Bangladesh University of Engineering and Technology
     start: 2016-02
     end: 2021-02
-    detail: "Thesis: Audiovisual emotion recognition using a multi-head attention network, advised by Celia Shahnaz."
+    detail: "Thesis: Audiovisual emotion recognition using multi-head attention based neural network, advised by Celia Shahnaz."
 
 
 awards:

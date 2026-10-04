@@ -6,7 +6,7 @@ Run after `npm run build`:
     python scripts/make_cv.py --page resume-print --out ~/applications/resume.pdf
 Needs `pip install playwright pypdfium2` and `playwright install chromium`.
 """
-import argparse, functools, http.server, json, threading
+import argparse, datetime as dt, functools, http.server, json, threading
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
@@ -53,8 +53,14 @@ def main():
                 }
                 document.body.appendChild(sec);
             }""", refs)
+        label = "Résumé" if "resume" in args.page else "CV"
+        stamp = dt.date.today().strftime("%B %Y")
+        footer = ('<div style="width:100%;text-align:center;font-family:Helvetica,Arial,sans-serif;'
+                  f'font-size:7.5pt;color:#5b6573">S. A. I. Shouborno, {label}, {stamp}, page '
+                  '<span class="pageNumber"></span> of <span class="totalPages"></span></div>')
         pg.pdf(path=str(out), prefer_css_page_size=True, print_background=True,
-               tagged=True, outline=True)
+               tagged=True, outline=True, display_header_footer=True,
+               header_template="<span></span>", footer_template=footer)
         b.close()
     srv.shutdown()
 

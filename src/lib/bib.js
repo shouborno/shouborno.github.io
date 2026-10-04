@@ -74,6 +74,16 @@ export function venue(e) {
   return e.booktitle || e.journal || e.howpublished || "";
 }
 
+// "vol. 10, pp. 1–9" or "vol. 2020, no. 1, art. 16"; conference papers get pages only.
+export function details(e) {
+  const parts = [];
+  if (e.type === "article" && e.volume) parts.push(`vol. ${e.volume}`);
+  if (e.type === "article" && e.number) parts.push(`no. ${e.number}`);
+  if (e.eid) parts.push(`art. ${e.eid}`);
+  else if (e.pages && e.type !== "misc") parts.push(`pp. ${e.pages}`);
+  return parts.join(", ");
+}
+
 // BibTeX shown to readers: drop the site-only fields.
 const SITE_FIELDS = ["status", "topic", "code", "codelabel", "selected", "note", "arxiv"];
 export function citation(e) {

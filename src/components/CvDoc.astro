@@ -5,9 +5,9 @@
 import "../styles/global.css";
 import "../styles/print.css";
 import { profile, publications, month } from "../lib/data.js";
-import { authors, venue } from "../lib/bib.js";
+import { authors, venue, details } from "../lib/bib.js";
 
-const { interests = profile.research_interests, title = `${profile.full_name} CV` } = Astro.props;
+const { interests = profile.research_interests, title = `${profile.full_name} CV`, refsNote = false } = Astro.props;
 const span = (s, e) => `${month(s)} – ${month(e)}`.replace("present", "Present");
 const papers = publications.filter((p) => !["misc", "mastersthesis"].includes(p.type));
 const patents = publications.filter((p) => p.type === "misc");
@@ -70,7 +70,7 @@ const host = profile.links;
             <Fragment>{a.self ? <strong>{a.name}</strong> : a.name}{i < all.length - 1 ? ", " : ". "}</Fragment>
           ))}
           <span class="ptitle">{p.title}.</span>{" "}
-          <em>{venue(p)}</em>{p.pages ? `, pp. ${p.pages}` : ""}{p.status ? "" : `, ${p.year}`}.
+          <em>{venue(p)}</em>{details(p) ? `, ${details(p)}` : ""}{p.status ? "" : `, ${p.year}`}.
           {p.status === "under review" && <span class="flag"> Under review.</span>}
           {p.status === "accepted" && <span class="flag"> Accepted, {p.year}.</span>}
           {p.code && <a class="code" href={p.code}>[{p.codelabel ?? "code"}]</a>}
@@ -105,5 +105,11 @@ const host = profile.links;
     <h2>Skills</h2>
     {profile.skills.map((s) => <p class="plain"><strong>{s.group}:</strong> {s.items}</p>)}
   </section>
+  {refsNote && (
+    <section>
+      <h2>References</h2>
+      <p class="plain">Available on request.</p>
+    </section>
+  )}
 </body>
 </html>

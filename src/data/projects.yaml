@@ -20,7 +20,7 @@
 - year: 2023
   title: Checking deep unlearning with saliency maps
   context: WPI course project
-  text: Used Grad-CAM, HiResCAM and EigenCAM to show that unlearned CIFAR-10 classes lose their saliency, supporting the Fast Unlearning paper's claims.
+  text: Grad-CAM and HiResCAM maps showed that unlearned CIFAR-10 classes lose their saliency, supporting the Fast Unlearning paper's claims, while EigenCAM's principal components stayed non-zero.
   links:
     - { label: Code, url: "https://github.com/SiddharthaPradhan/MachineUnleaningProject" }
 - year: 2021
