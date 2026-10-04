@@ -1,7 +1,7 @@
-@page { size: Letter; margin: 0.45in 0.55in 0.55in; }
+@page { size: Letter; margin: 0.42in 0.55in 0.5in; }
   body.cv {
     max-width: 7.4in; margin: 0 auto; padding: 0;
-    font-size: 9.1pt; line-height: 1.3; color: #1c2430; background: #fff;
+    font-size: 9pt; line-height: 1.3; color: #1c2430; background: #fff;
     -webkit-print-color-adjust: exact; print-color-adjust: exact;
   }
   .cv a { color: inherit; text-decoration: none; }
@@ -24,7 +24,10 @@
   .cv .detail { margin: 1pt 0 0; }
   .cv ul { margin: 2pt 0 0; padding-left: 13pt; }
   .cv li { margin: 0 0 1pt; }
-  .cv .pubs { margin: 0; padding-left: 20pt; }
+  .cv .pubs { margin: 0; padding-left: 12pt; list-style: none; }
+.cv .pubs li { text-indent: -12pt; }
+.cv .pubgroup h3 { font-size: 9.6pt; margin: 4pt 0 2pt; font-weight: 600; break-after: avoid; }
+.cv .muted-note { color: #5b6573; font-style: italic; margin: 0 0 2pt; }
   .cv .pubs li { margin: 0 0 3pt; break-inside: avoid; }
   .cv .pubs li::marker { font-size: 8.6pt; color: #5b6573; }
   .cv .ptitle { font-weight: 600; }

@@ -3,9 +3,9 @@ import Base from "../layouts/Base.astro";
 import { profile, month } from "../lib/data.js";
 
 ---
-<Base title="Experience">
+<Base title="CV">
   <header class="page-head">
-    <h1>Experience</h1>
+    <h1>CV</h1>
     <p>The full CV is a <a href={profile.cv}>PDF</a>.</p>
   </header>
 
@@ -49,7 +49,7 @@ import { profile, month } from "../lib/data.js";
         <span class="when">{s.years}</span>
         <div>
           <h3 class="item">{s.role}, {s.org}</h3>
-          <ul class="points">{s.points.map((p) => <li>{p}</li>)}</ul>
+          {s.points.length > 0 && <ul class="points">{s.points.map((p) => <li>{p}</li>)}</ul>}
         </div>
       </li>
     ))}

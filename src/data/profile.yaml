@@ -141,15 +141,15 @@ experience:
     end: present
     place: Amherst, MA
     points:
-      - Cuffless blood pressure estimation from graphene electronic tattoo sensors, with the Kireev Lab.
-      - Fault diagnosis for industrial controllers from sensor and program trace data, with Bosch Research.
+      - Building physics-informed neural networks that estimate blood pressure from graphene electronic tattoo bioimpedance, with the Kireev Lab.
+      - Reconstructing the program execution trace of industrial controllers from process sensors to localize faults, with Bosch Research.
   - org: Robert Bosch LLC, Bosch Research
     title: AI for Cyber-Physical Systems Intern
     start: 2025-05
     end: 2025-08
     place: Pittsburgh, PA
     points:
-      - Built a contrastive multimodal model connecting vision, sensor, program trace and text data for language-guided few-shot functional state classification.
+      - Built a contrastive model aligning vision, sensor, program trace and text data from a manufacturing process for language-guided few-shot classification of machine state.
       - Continued the project as a collaboration after the internship, leading to an IAAI-27 submission with Bosch co-authors.
   - org: Worcester Polytechnic Institute
     title: Research and Teaching Assistant
@@ -157,18 +157,17 @@ experience:
     end: 2026-08
     place: Worcester, MA
     points:
-      - BASH Lab research on LLMs for IMU-based activity reasoning and on budgeted early-exit inference.
-      - Teaching assistant for the graduate course On-Device Deep Learning and three undergraduate ECE courses.
+      - Developed LLaSA, a sensor-aware LLM that answers questions about human activity from IMU data, and released the SensorCaps and OpenSQA datasets with it.
+      - Developed JOLT, an early-exit training method that ranked first of 11 methods across 7 datasets under compute budgets.
+      - Served as teaching assistant for the graduate course On-Device Deep Learning and three undergraduate ECE courses.
   - org: Hishab Technologies
     title: Machine Learning Engineer
     start: 2021-02
     end: 2023-07
     place: Dhaka, Bangladesh
     points:
-      - Built telephony conversational AI for Bengali speakers, covering speech recognition, text to speech, NER, language models and grapheme-to-phoneme conversion.
+      - Built telephony conversational AI for Bengali speakers, covering speech recognition, text to speech, named entity recognition, language models and grapheme-to-phoneme conversion.
       - Deployed services for banking and microfinance clients, including Bank Asia and Hitachi India.
-      - Co-inventor on a U.S. patent application for optimizing interactive voice response sessions.
-      - Worked with partner Chowa Giken (Japan) on car interior image enhancement.
 
 education:
   - degree: Ph.D., Electrical and Computer Engineering
@@ -190,14 +189,12 @@ education:
 
 
 awards:
+  - year: 2019, 2020
+    text: 2nd place (ICIP 2019) and 5th place (ICIP 2020), IEEE Video and Image Processing Cup
   - year: 2020
-    text: 5th place, IEEE Video and Image Processing Cup at ICIP 2020 (real-time vehicle detection and tracking with fisheye cameras)
-  - year: 2020
-    text: 4th place, IEEE Signal Processing Cup at ICASSP 2020 (unsupervised anomaly detection for autonomous drones)
-  - year: 2019
-    text: 2nd place, IEEE Video and Image Processing Cup at ICIP 2019 (activity recognition from body cameras)
+    text: 4th place, IEEE Signal Processing Cup at ICASSP 2020
   - year: 2018
-    text: National champion and 22nd worldwide, IEEEXtreme 12.0 programming contest (national champion in 2017 as well)
+    text: National champion and 22nd worldwide, IEEEXtreme 12.0 programming contest (also national champion in 2017)
 
 service:
   - role: Chair
@@ -205,16 +202,17 @@ service:
     years: 2019 – 2021
     points:
       - Organized the 2019 IEEE SPS Winter School on Multimodal Signal Processing.
-      - Grew the chapter into the largest IEEE student branch chapter in Bangladesh; it received the IEEE SPS Student Branch Chapter Growth Reward.
+      - Grew it into the largest IEEE student branch chapter in Bangladesh, winning the IEEE SPS Growth Reward.
   - role: Ambassador and Country Lead (2019)
     org: IEEEXtreme Programming Contest
     years: 2017 – 2019
-    points:
-      - Ran programming workshops for students in Bangladesh.
+    points: []
 
 skills:
+  - group: Programming
+    items: Python, PyTorch, TensorFlow, Keras, scikit-learn, MATLAB, C/C++, Git, LaTeX
   - group: Machine learning
-    items: PyTorch, multimodal and contrastive learning, LLM fine-tuning, early-exit and efficient inference, physics-informed models
+    items: Multimodal and contrastive learning, LLM fine-tuning, on-device inference, physics-informed models
   - group: Signals
     items: Biomedical signals (PPG, bioimpedance, sleep PSG), IMU, audio and speech, image and video
   - group: Systems

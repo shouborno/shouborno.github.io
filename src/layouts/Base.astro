@@ -7,7 +7,7 @@ const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 const nav = [
   ["/research", "Research"],
   ["/publications", "Publications"],
-  ["/cv", "Experience"],
+  ["/cv", "CV"],
   ["/projects", "Earlier work"],
 ];
 const pageTitle = title ? `${title} | ${profile.full_name}` : `${profile.full_name}`;
@@ -42,7 +42,7 @@ const pageTitle = title ? `${title} | ${profile.full_name}` : `${profile.full_na
           {nav.map(([href, label]) => (
             <li><a href={href} aria-current={path === href ? "page" : undefined}>{label}</a></li>
           ))}
-          <li><a href={profile.cv}>CV (PDF)</a></li>
+          <li><a href={profile.cv}>PDF</a></li>
           <li><button id="theme" type="button" aria-label="Switch light or dark theme">Theme</button></li>
         </ul>
       </nav>

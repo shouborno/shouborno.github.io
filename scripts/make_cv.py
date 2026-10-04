@@ -42,14 +42,13 @@ def main():
             refs = json.loads(args.references.read_text())
             pg.evaluate("""refs => {
                 const sec = document.createElement('section');
-                sec.innerHTML = '<h2>References</h2><div class="refs"></div>';
-                const box = sec.querySelector('.refs');
+                sec.innerHTML = '<h2>References</h2>';
                 for (const r of refs) {
-                    const d = document.createElement('div');
-                    d.className = 'ref';
-                    d.innerHTML = `<strong>${r.name}</strong><br>${r.title}<br>${r.relation}<br>` +
+                    const d = document.createElement('p');
+                    d.className = 'plain';
+                    d.innerHTML = `<strong>${r.name}</strong>, ${r.title}. ${r.relation}. ` +
                                   `<a href="mailto:${r.email}">${r.email}</a>`;
-                    box.appendChild(d);
+                    sec.appendChild(d);
                 }
                 document.body.appendChild(sec);
             }""", refs)

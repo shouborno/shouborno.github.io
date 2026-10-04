@@ -85,7 +85,7 @@ export function details(e) {
 }
 
 // BibTeX shown to readers: drop the site-only fields.
-const SITE_FIELDS = ["status", "topic", "code", "codelabel", "selected", "note", "arxiv"];
+const SITE_FIELDS = ["status", "topic", "code", "codelabel", "selected", "note", "arxiv", "short"];
 export function citation(e) {
   return e.raw
     .split("\n")
