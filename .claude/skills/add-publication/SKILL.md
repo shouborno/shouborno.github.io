@@ -24,7 +24,8 @@ All publications live in `src/data/publications.bib`. Pages read it at build tim
 4. If the user's name appears in a new form, add that form to `self_names` in `profile.yaml` so it is highlighted.
 5. Add a news item at the top of `news` in `profile.yaml`, dated `YYYY-MM`, one plain sentence.
 6. Build and check: `npm run build`. Then open the Publications page in the built output and confirm the entry renders with the name highlighted.
-7. Show the user the diff. Commit only when asked, with a plain message such as `Add <short title> (<venue> <year>)` and no AI attribution.
+7. Regenerate the CV, which reads the same file: `~/site-sources/.venv/bin/python scripts/make_cv.py --png /tmp/cv-check`. Look at the PNGs; the CV should stay at two full pages. If it spills onto a third page, tell the user and propose what to shorten.
+8. Show the user the diff. Commit only when asked, with a plain message such as `Add <short title> (<venue> <year>)` and no AI attribution.
 
 ## Writing style
 
