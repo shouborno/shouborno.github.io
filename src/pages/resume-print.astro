@@ -1,0 +1,89 @@
+---
+// One-page résumé for engineering-titled internships. Not linked from the site;
+// printed by scripts/make_cv.py. Selected papers only; older roles dropped.
+import "../styles/global.css";
+import "../styles/print.css";
+import { profile, publications, month } from "../lib/data.js";
+import { authors, venue } from "../lib/bib.js";
+
+const span = (s, e) => `${month(s)} – ${month(e)}`.replace("present", "Present");
+const host = profile.links;
+const jobs = profile.experience.filter((x) => x.start >= "2021-01");
+const selected = publications.filter((p) => p.selected === "true");
+const edu = profile.education.filter((x) => !x.degree.startsWith("Ph.D. studies"));
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="robots" content="noindex" />
+  <title>{profile.full_name} Résumé</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet" />
+</head>
+<body class="cv resume">
+  <header class="head">
+    <h1>{profile.name}</h1>
+    <p class="headline">{profile.role}, {profile.institution}</p>
+    <p class="contact">
+      <a href={`mailto:${profile.email}`}>{profile.email}</a><span class="sep" />
+      {profile.phone}<span class="sep" />
+      <a href="https://shouborno.github.io">shouborno.github.io</a><span class="sep" />
+      <a href={host.scholar}>Google Scholar</a><span class="sep" />
+      <a href={host.github}>GitHub</a><span class="sep" />
+      <a href={host.linkedin}>LinkedIn</a>
+    </p>
+  </header>
+
+  <section>
+    <h2>Summary</h2>
+    <p class="summary">{profile.tagline.replace("My research develops", "PhD researcher developing")} Previously 2.5 years as a production ML engineer.</p>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    {edu.map((x) => (
+      <div class="row line"><span><strong>{x.degree}</strong><span class="sub">, {x.school}</span></span><span class="date">{x.expected ? `Expected ${month(x.end)}` : month(x.end)}</span></div>
+    ))}
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    {jobs.map((x) => (
+      <div class="entry">
+        <div class="row"><span><strong>{x.title}, {x.org}</strong><span class="sub">, {x.place}</span></span><span class="date">{span(x.start, x.end)}</span></div>
+        <ul>{x.points.slice(0, 3).map((p) => <li>{p}</li>)}</ul>
+      </div>
+    ))}
+  </section>
+
+  <section>
+    <h2>Selected publications</h2>
+    <ul class="pubs-short">
+      {selected.map((p) => (
+        <li>
+          {authors(p, profile.self_names).map((a, i, all) => (
+            <Fragment>{a.self ? <strong>{a.name}</strong> : a.name}{i < all.length - 1 ? ", " : ". "}</Fragment>
+          ))}
+          <span class="ptitle">{p.title}.</span> <em>{venue(p).match(/\(([^)]+)\)\s*$/)?.[1] ?? venue(p)}</em>{p.status === "under review" ? ", under review." : `, ${p.year}.`}
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    {profile.skills.map((s) => <p class="plain"><strong>{s.group}:</strong> {s.items}</p>)}
+  </section>
+
+  <section>
+    <h2>Honors</h2>
+    <p class="plain">{profile.awards.map((a) => { const t = a.text.replace(/\s*\(.*\)$/, ""); return t.includes(String(a.year)) ? t : `${t} (${a.year})`; }).join("; ")}.</p>
+  </section>
+</body>
+</html>
+
+<style is:global>
+  .resume .pubs-short { margin: 0; padding-left: 13pt; }
+  .resume .pubs-short li { margin: 0 0 2pt; }
+</style>

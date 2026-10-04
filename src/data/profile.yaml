@@ -105,6 +105,17 @@ research_interests: >-
   health sensing, including cuffless blood pressure and sleep-based cognitive
   screening; industrial cyber-physical systems; language models grounded in sensor
   data; efficient on-device inference.
+research_interests_health: >-
+  Interpretable, physics-informed machine learning for wearable health sensing:
+  cuffless blood pressure from skin-worn sensors, sleep-based cognitive screening,
+  and biosignals (PPG, bioimpedance, IMU); language models grounded in sensor data;
+  efficient on-device inference; industrial cyber-physical systems.
+research_interests_cps: >-
+  Interpretable machine learning for industrial cyber-physical systems:
+  reconstructing controller execution from process sensors, fault diagnosis, and
+  multimodal models linking sensors, program traces, video and text; time-series
+  and physics-informed modeling; efficient on-device inference; wearable health
+  sensing.
 
 news:
   - date: 2026-09
