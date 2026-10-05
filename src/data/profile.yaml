@@ -49,12 +49,13 @@ directions:
       Estimating physiological state that a wearable cannot measure directly, with
       models a clinician can inspect.
     body: >-
-      With the Kireev Lab at UMass Amherst, I am building physics-informed neural
-      networks that estimate blood pressure from graphene electronic tattoo patches,
-      to track blood pressure continuously without a cuff. Our PhysioNet
-      Challenge 2026 entry screens for future cognitive impairment from overnight
-      sleep studies using interpretable sleep features. It reaches 0.77
-      age-conditioned AUROC when tested on hospitals it was not trained on. Earlier, I predicted hypoxemia severity in
+      With the Kireev Lab at UMass Amherst, I estimate blood pressure from graphene
+      electronic tattoo patches with physics-informed and tree-based models, to track
+      blood pressure continuously without a cuff. Our PhysioNet Challenge 2026 entry
+      screens for future cognitive impairment from overnight sleep studies using
+      interpretable sleep features aligned to the scored hospital. On the hidden test
+      set it scored 0.678 age-conditioned AUROC, 10th of 42 teams. Earlier, I
+      predicted hypoxemia severity in
       hospital in-patients from the photoplethysmograph.
   - id: cps
     kind: application
@@ -70,10 +71,10 @@ directions:
       from the plant's process sensors alone, so faults in control software can be
       localized without adding logging to the deployed controller. On a Bosch
       ctrlX testbed it detects code-path faults that sensor readings alone cannot
-      reveal at 0.99 AUC and names the faulty function 69% of the time. During my Bosch
-      internship I built a contrastive model linking four modalities from a
-      manufacturing process (vision, sensor, program trace and text data) for
-      language-guided few-shot state classification.
+      reveal at 0.99 AUC, and with a healthy replay as reference it names the faulty
+      function 69% of the time. During my Bosch internship I built a contrastive model
+      linking four modalities from an industrial control testbed (vision, sensor,
+      program trace and text data) for language-guided few-shot state classification.
   - id: language
     kind: method
     title: Explaining sensor data in language
@@ -101,8 +102,8 @@ directions:
       embedded hardware.
     body: >-
       JOLT trains early-exit networks so that each exit's confidence tracks which
-      inputs it gets right, then routes on that confidence to hold a stated compute
-      budget even when the input distribution shifts. Across seven sensor, image,
+      inputs it gets right, then routes on that confidence so that it overspends a
+      stated compute budget by at most 6.8% when the input distribution shifts. Across seven sensor, image,
       audio and language datasets it ranks first of eleven methods. At WPI I was also a
       teaching assistant for the graduate course On-Device Deep Learning.
 
@@ -145,16 +146,16 @@ experience:
     end: present
     place: Amherst, MA
     points:
-      - Building physics-informed neural networks that estimate blood pressure from graphene electronic tattoo bioimpedance, with the Kireev Lab.
-      - Extending the Bosch internship project with Bosch Research by reconstructing the program execution traces of industrial controllers from process sensors (IAAI-27, under review). The method detects code-path faults that sensor readings alone cannot reveal at 0.99 AUC and names the faulty function 69% of the time.
-      - Predicted future cognitive impairment from overnight sleep studies at 0.77 age-conditioned AUROC on held-out hospitals in the PhysioNet Challenge 2026 (CinC 2026, accepted).
+      - Estimating blood pressure from graphene electronic tattoo bioimpedance with physics-informed and tree-based models, with the Kireev Lab.
+      - Extending the Bosch internship project with Bosch Research by reconstructing the program execution traces of industrial controllers from process sensors (IAAI-27, under review). The method detects code-path faults that sensor readings alone cannot reveal at 0.99 AUC.
+      - Placed 10th of 42 teams in the PhysioNet Challenge 2026 with interpretable sleep features for predicting future cognitive impairment (0.678 age-conditioned AUROC on the hidden test set; CinC 2026, accepted).
   - org: Robert Bosch LLC, Bosch Research
     title: AI for Cyber-Physical Systems Intern
     start: 2025-05
     end: 2025-08
     place: Pittsburgh, PA
     points:
-      - Built a contrastive model aligning vision, sensor, program trace and text data from a manufacturing process for language-guided few-shot classification of machine state.
+      - Built a contrastive model aligning vision, sensor, program trace and text data from an industrial control testbed for language-guided few-shot classification of machine state.
   - org: Worcester Polytechnic Institute
     title: Research and Teaching Assistant
     start: 2023-08
