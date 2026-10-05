@@ -56,7 +56,8 @@ const pageTitle = title ? `${title} | ${profile.full_name}` : `${profile.full_na
         {profile.phone}.
         <a href={profile.links.scholar}>Google Scholar</a>,
         <a href={profile.links.github}>GitHub</a>,
-        <a href={profile.links.linkedin}>LinkedIn</a>.
+        <a href={profile.links.linkedin}>LinkedIn</a>,
+        <a href={profile.links.orcid}>ORCID</a>.
       </p>
       <p class="muted">Updated {new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })}.</p>
     </footer>

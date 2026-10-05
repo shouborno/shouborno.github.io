@@ -2,8 +2,7 @@
 # Dates are "YYYY-MM"; "present" marks an ongoing role.
 
 name: S. A. I. Shouborno
-full_name: Sheikh Asif Imran Shouborno
-also_cited_as: [Imran, S. A., Shouborno, S. A. I., Asif Imran Shouborno, S.]
+full_name: S. A. I. Shouborno
 # Name forms highlighted in author lists
 self_names: ["Shouborno, S. A. I.", "Imran, S. A.", "Imran, Sheikh Asif"]
 
@@ -27,6 +26,7 @@ links:
   scholar: https://scholar.google.com/citations?user=1DjYaloAAAAJ&hl=en
   github: https://github.com/shouborno
   linkedin: https://www.linkedin.com/in/shouborno/
+  orcid: https://orcid.org/0000-0002-2403-3080
 cv: /cv.pdf
 
 about: >-
@@ -53,8 +53,8 @@ directions:
       networks that estimate blood pressure from graphene electronic tattoo patches,
       to track blood pressure continuously without a cuff. Our PhysioNet
       Challenge 2026 entry screens for future cognitive impairment from overnight
-      sleep studies using interpretable sleep features, and tests whether they
-      hold up across clinical sites. Earlier, I predicted hypoxemia severity in
+      sleep studies using interpretable sleep features. It reaches 0.77
+      age-conditioned AUROC when tested on hospitals it was not trained on. Earlier, I predicted hypoxemia severity in
       hospital in-patients from the photoplethysmograph.
   - id: cps
     kind: application
@@ -68,7 +68,9 @@ directions:
       With Bosch Research, I reconstruct the branch-level program execution trace of an
       industrial controller
       from the plant's process sensors alone, so faults in control software can be
-      localized without adding logging to the deployed controller. During my Bosch
+      localized without adding logging to the deployed controller. On a Bosch
+      ctrlX testbed it detects code-path faults that sensor readings alone cannot
+      reveal at 0.99 AUC and names the faulty function 69% of the time. During my Bosch
       internship I built a contrastive model linking four modalities from a
       manufacturing process (vision, sensor, program trace and text data) for
       language-guided few-shot state classification.
@@ -82,8 +84,10 @@ directions:
       about it in plain language.
     body: >-
       LLaSA pairs an IMU encoder with a language model so it can answer open-ended
-      questions about human activity from raw accelerometer and gyroscope data; we
-      released the SensorCaps and OpenSQA datasets with it. Concord studies when
+      questions about human activity from raw accelerometer and gyroscope data, and
+      it outperforms GPT-3.5 and GPT-4o-mini on these tasks. We released the
+      SensorCap and OpenSQA datasets, with 35,960 captions and 199,701 question
+      and answer pairs. Concord studies when
       to trust LLM judges, using agreement among several judges as an uncertainty
       signal. This builds on two and a half years of production conversational AI
       and speech recognition for Bengali speakers.
@@ -142,7 +146,8 @@ experience:
     place: Amherst, MA
     points:
       - Building physics-informed neural networks that estimate blood pressure from graphene electronic tattoo bioimpedance, with the Kireev Lab.
-      - Reconstructing the program execution trace of industrial controllers from process sensors to localize faults, with Bosch Research.
+      - Extending the Bosch internship project with Bosch Research by reconstructing the program execution traces of industrial controllers from process sensors (IAAI-27, under review). The method detects code-path faults that sensor readings alone cannot reveal at 0.99 AUC and names the faulty function 69% of the time.
+      - Predicted future cognitive impairment from overnight sleep studies at 0.77 age-conditioned AUROC on held-out hospitals in the PhysioNet Challenge 2026 (CinC 2026, accepted).
   - org: Robert Bosch LLC, Bosch Research
     title: AI for Cyber-Physical Systems Intern
     start: 2025-05
@@ -150,14 +155,13 @@ experience:
     place: Pittsburgh, PA
     points:
       - Built a contrastive model aligning vision, sensor, program trace and text data from a manufacturing process for language-guided few-shot classification of machine state.
-      - Continued the project as a collaboration after the internship, leading to an IAAI-27 submission with Bosch co-authors.
   - org: Worcester Polytechnic Institute
     title: Research and Teaching Assistant
     start: 2023-08
     end: 2026-08
     place: Worcester, MA
     points:
-      - Developed LLaSA, a sensor-aware LLM that answers questions about human activity from IMU data, and released the SensorCaps and OpenSQA datasets with it.
+      - Developed LLaSA, a sensor-aware LLM that answers questions about human activity from IMU data and outperforms GPT-3.5 and GPT-4o-mini, with 235,661 released training pairs (SensorCap and OpenSQA).
       - Developed JOLT, an early-exit training method that ranked first of 11 methods across 7 datasets under compute budgets.
       - Served as teaching assistant for the graduate course On-Device Deep Learning and three undergraduate ECE courses.
   - org: Hishab Technologies

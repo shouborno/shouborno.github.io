@@ -39,7 +39,8 @@ const host = profile.links;
       <a href="https://shouborno.github.io">shouborno.github.io</a><span class="sep" />
       <a href={host.scholar}>Google Scholar</a><span class="sep" />
       <a href={host.github}>github.com/shouborno</a><span class="sep" />
-      <a href={host.linkedin}>linkedin.com/in/shouborno</a>
+      <a href={host.linkedin}>linkedin.com/in/shouborno</a><span class="sep" />
+      <a href={host.orcid}>ORCID 0000-0002-2403-3080</a>
     </p>
   </header>
 
@@ -70,7 +71,6 @@ const host = profile.links;
 
   <section>
     <h2>Publications</h2>
-    <p class="plain muted-note">Earlier papers list me as S. A. Imran or Sheikh Asif Imran.</p>
     {groups.map(([heading, list]) => list.length > 0 && (
       <div class="pubgroup">
         <h3>{heading}</h3>
